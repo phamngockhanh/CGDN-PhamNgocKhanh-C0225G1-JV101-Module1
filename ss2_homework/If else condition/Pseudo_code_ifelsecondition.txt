@@ -1,0 +1,25 @@
+Begin 
+
+	Input point
+
+	IF ( point >= 75 )
+
+		Display "Loai A"
+
+	ELSE IF ( point >= 60 )
+		
+		Display "Loai B"
+
+	ELSE IF ( point >= 45 )
+
+		Display "Loai C"
+
+	ELSE IF (point >= 35 )
+
+		Display "Loai D"
+
+	ELSE
+
+		Display "Loai E"
+
+End
