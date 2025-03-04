@@ -1,0 +1,22 @@
+Begin
+
+	Input (a,b,c)
+	
+	max = a
+
+	IF (b>a or c>a) then
+
+		IF (b>c) then
+
+			max = b
+
+		ELSE
+			max = c
+	
+	ELSE
+		
+		max = a
+
+	Display max
+
+End
