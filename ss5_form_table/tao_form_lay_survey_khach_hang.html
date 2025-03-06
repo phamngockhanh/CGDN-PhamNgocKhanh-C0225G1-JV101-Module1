@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        div{
+            margin-bottom: 20px;
+        }
+        div:focus-within{
+            background-color: #fae895;
+            outline: 2px solid #4CAF50;
+            transition: 0.3s;
+        }
+        .hd{
+            border-bottom: 1px dashed gray;
+        }
+        .font-size{
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-<form action="/survey" method="post">
-    <div>
-        <h1>Market Research Survey</h1>
+<form action="/survey" method="post" class="font-size">
+    <div class="hd">
+        <h2>Market Research Survey</h2>
         <p>Please take a few moments to complete this satisfaction survey.</p>
     </div>
 
@@ -38,11 +64,11 @@
                 <input type="radio" name="gender" id="otherRadio" value="other"> Other
             </label><br>
             <label>
-                <input type="text" id="otherText" name="otherText" placeholder="Nhập giới tính khác">
+                <input type="text" id="otherText" name="otherText" placeholder="Other gender">
             </label>
             <script>
-                document.getElementById("otherText").addEventListener("focus",function(){
-                    document.getElementById("otherRadio").checked=true;
+                document.getElementById("otherText").addEventListener("focus", function () {
+                    document.getElementById("otherRadio").checked = true;
                 });
             </script>
         </div>
@@ -65,8 +91,52 @@
     </div>
     <div>
         <span><b>What would you pay for the new product?</b></span>
-
+        <p>$
+            <label><input type="text" size="4"></label>.
+            <label><input type="text" size="1"></label>
+        </p>
+        <p>Dollars Cents</p>
     </div>
+    <div>
+        <span>What features would you like to see in the new product.</span><br>
+        <label><textarea name="feedback" rows="8" cols="100"></textarea></label>
+    </div>
+    <div>
+        <span>Please rate your level of agreement with the following statements.</span><br>
+        <table>
+            <tr style="background: #bdbdbd">
+                <th></th>
+                <th>Strongly Disagree</th>
+                <th>Disagree</th>
+                <th>Agree</th>
+                <th>Strongly Agree</th>
+            </tr>
+            <tr>
+                <th><b>Our products are priced fairly.</b></th>
+                <td><label><input type="radio"></label><br>1</td>
+                <td><label><input type="radio"></label><br>2</td>
+                <td><label><input type="radio"></label><br>3</td>
+                <td><label><input type="radio"></label><br>4</td>
+
+            </tr>
+            <tr style="background: #cef8ff">
+                <th><b>Our products are priced quality.</b></th>
+                <td><label><input type="radio"></label><br>1</td>
+                <td><label><input type="radio"></label><br>2</td>
+                <td><label><input type="radio"></label><br>3</td>
+                <td><label><input type="radio"></label><br>4</td>
+            </tr>
+            <tr>
+                <th><b>You would recommend our product to a friend or coworker.</b></th>
+                <td><label><input type="radio"></label><br>1</td>
+                <td><label><input type="radio"></label><br>2</td>
+                <td><label><input type="radio"></label><br>3</td>
+                <td><label><input type="radio"></label><br>4</td>
+            </tr>
+        </table>
+    </div>
+
+    <button type="submit">Submit</button>
 </form>
 </body>
 </html>
