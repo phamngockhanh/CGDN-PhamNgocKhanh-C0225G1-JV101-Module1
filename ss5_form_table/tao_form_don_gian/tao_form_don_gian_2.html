@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg-hd {
+            background-color: #91fb91;
+            color: blue;
+        }
+
+        .container {
+            background-color: #ffde37;
+            margin-right: 2000px;
+            padding: 1px 0 1px 0;
+        }
+
+        .container2 {
+            margin: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+
+        label {
+            color: blue;
+            font-size: 20px;
+            width : 150px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .bg-form {
+            border: 300px;
+        }
+        .form-button{
+            margin-left: 175px;
+        }
+    </style>
+
+</head>
+<body>
+<form action="/form" method="post" class="bg-form">
+    <div class="container">
+        <div class="container2">
+            <h2 class="bg-hd">ĐĂNG KÝ HỌC VIÊN</h2>
+            <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" name="name"><br>
+            </div>
+            <div class="form-group">
+                <label for="dateofbirth">Ngày sinh</label>
+                <input type="text" id="dateofbirth" name="dateofbirth"><br>
+            </div>
+            <div class="form-group">
+                <label>Giới tính</label>
+                <div>
+                    <label><input type="radio" name="gender" value="male">Nam</label>
+                    <label><input type="radio" name="gender" value="female">Nữ</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ</label>
+                <textarea cols="20" rows="3" name="address" id="address"></textarea><br>
+            </div>
+            <div class="form-group">
+                <label for="class">Lớp</label>
+                <select name="class" id="class">
+                    <option value="0" selected>-Chọn lớp-</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select><br>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email"><br>
+            </div>
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="text" id="phone" name="phone"><br>
+            </div>
+            <div class="form-button">
+                <button type="submit">Đăng ký</button>
+                <button type="reset">Nhập lại</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

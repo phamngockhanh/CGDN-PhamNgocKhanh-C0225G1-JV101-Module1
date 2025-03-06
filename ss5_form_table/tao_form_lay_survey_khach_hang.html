@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/survey" method="post">
+    <div>
+        <h1>Market Research Survey</h1>
+        <p>Please take a few moments to complete this satisfaction survey.</p>
+    </div>
+
+    <div>
+        <label for="age"><b>What is your age range?</b></label><br>
+        <select name="age" id="age">
+            <option value="18">18-24</option>
+            <option value="25">25-34</option>
+            <option value="35">35-50</option>
+            <option value="50">50+</option>
+        </select>
+    </div>
+    <div>
+        <label for="income"><b>What is your yearly income range?</b></label><br>
+        <select name="income" id="income">
+            <option value="25000">$0-$25,000</option>
+            <option value="50000">$25,0001-$50,000</option>
+            <option value="100000">$50,001-$100,000</option>
+            <option value="150000">$100000+</option>
+        </select>
+    </div>
+    <div>
+        <label><b>Gender Identity</b></label>
+        <div>
+            <label><input type="radio" name="gender">Male</label><br>
+            <label><input type="radio" name="gender">Female</label><br>
+            <label>
+                <input type="radio" name="gender" id="otherRadio" value="other"> Other
+            </label><br>
+            <label>
+                <input type="text" id="otherText" name="otherText" placeholder="Nhập giới tính khác">
+            </label>
+            <script>
+                document.getElementById("otherText").addEventListener("focus",function(){
+                    document.getElementById("otherRadio").checked=true;
+                });
+            </script>
+        </div>
+    </div>
+    <div>
+        <span><b>Which of the following products have your purchased in the last 2 months. Please check all that apply.</b></span>
+        <div>
+            <label><input type="checkbox" name="product">Product 1</label><br>
+            <label><input type="checkbox" name="product">Product 2</label><br>
+            <label><input type="checkbox" name="product">Product 3</label>
+        </div>
+    </div>
+    <div>
+        <span><b>How often would you use our new product?</b></span>
+        <div>
+            <label><input type="radio" name="routine">Daily</label><br>
+            <label><input type="radio" name="routine">Weekly</label><br>
+            <label><input type="radio" name="routine">Monthly</label>
+        </div>
+    </div>
+    <div>
+        <span><b>What would you pay for the new product?</b></span>
+
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg-form {
+            border: 20px solid #a5f0fa;
+            margin: 0 800px 0 800px
+        }
+
+        .bg-title {
+            background-color: orangered;
+            text-align: center;
+            color: white;
+            padding: 5px 0 5px 0;
+        }
+
+        .container {
+            margin: 10px;
+        }
+
+        .cnt {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            max-width: 500px;
+        }
+
+        .cnt-btn{
+            margin-left:150px;
+        }
+
+        .cnt-mail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            max-width: 400px;
+        }
+
+        .txt {
+            color: blue;
+            font-size: 20px;
+        }
+
+        .hobby-group {
+            color: darkorange;
+            font-size: 20px;
+        }
+
+        .input-fs {
+            font-size: 20px;
+            border-top: 4px solid dimgray;
+            border-left: 4px solid dimgray;
+        }
+
+        .cb-hobby {
+            margin-right: 10px;
+            gap: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<form action="/sothich" method="post" class="bg-form">
+    <div class="container">
+        <h1 class="bg-title">SỞ THÍCH CỦA BẠN</h1>
+        <div class="cnt">
+            <label for="yourname" class="txt">Họ và tên</label>
+            <input type="text" id="yourname" name="yourname" class="input-fs" size="30">
+        </div>
+        <div class="cnt-mail">
+            <label for="email" class="txt">Email</label>
+            <input type="email" id="email" class="input-fs">
+        </div>
+        <div class="cnt">
+            <label class="txt">Sở thích</label>
+            <div class="hobby-group">
+                <label><input type="checkbox" name="hobby" value="tt" class="cb-hobby"> Thể thao</label>
+                <label><input type="checkbox" name="hobby" value="music" class="cb-hobby"> Âm nhạc</label>
+                <label><input type="checkbox" name="hobby" value="reading" class="cb-hobby"> Đọc sách</label> <br>
+                <label><input type="checkbox" name="hobby" value="web" class="cb-hobby"> Lướt web</label>
+                <label><input type="checkbox" name="hobby" value="game" class="cb-hobby"> Chơi game</label>
+                <label><input type="checkbox" name="hobby" value="movie" class="cb-hobby"> Điện ảnh</label><br>
+                <label><input type="checkbox" name="hobby" value="travel" class="cb-hobby"> Du lịch</label>
+            </div>
+        </div>
+        <div class="cnt-btn">
+            <button class="input-fs" type="submit" name="Submit Form">Gửi thông tin</button>
+            <button class="input-fs" type="reset" name="Reset Form" onclick="alert(`Vui lòng nhập lại!!`)">Nhập lại
+            </button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
