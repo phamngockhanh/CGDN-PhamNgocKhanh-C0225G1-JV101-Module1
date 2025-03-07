@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình học</title>
+    <style>
+        div {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            font-size: 30px;
+            margin-right: 50px;
+        }
+
+        input, select {
+            font-size: 30px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Hình học</h1>
+    <label for="hinh">Chọn hình mà bạn muốn: </label>
+    <select name="hinh" id="hinh">
+        <option value="1">-- Chọn hình --</option>
+        <option value="vuong">Hình vuông</option>
+        <option value="chu_nhat">Hình chữ nhật</option>
+    </select><br>
+
+    <div id="rectangle" class="hidden">
+        <label for="cd">Nhập chiều dài: </label>
+        <input type="text" id="cd"><br>
+        <label for="cr">Nhập chiều rộng: </label>
+        <input type="text" id="cr">
+        <button onclick="hinhhoc()">Tính</button>
+    </div>
+
+    <div id="square" class="hidden">
+        <label for="c">Nhập cạnh: </label>
+        <input type="text" id="c"><br>
+        <button onclick="hinhhoc()">Tính</button>
+    </div>
+    <p id="cv"></p>
+    <p id="s"></p>
+</div>
+<script src="hinh_hoc.js"></script>
+</body>
+</html>

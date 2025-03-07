@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính toán</title>
+    <style>
+        div {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        input {
+            font-size: 30px;
+            margin: 10px 0 10px 0;
+        }
+
+        select {
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <h1>Nhập số để tính toán</h1>
+    <label for="so1">Số thứ 1:</label>
+    <input type="text" id="so1"> <br>
+    <label>Phép tính:
+        <select name="tinh" id="pheptinh">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+    </label><br>
+    <label for="so2">Số thứ 2:</label>
+    <input type="text" id="so2">
+    <p id="result"></p>
+    <button onclick="myFunction()">Tính</button>
+</div>
+<script src="tinh_toan.js"></script>
+</body>
+</html>
