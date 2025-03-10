@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+    <style>
+        .khoi1 {
+            border: 2px solid gray;
+            margin-right: 83%;
+        }
+
+        div label{
+            margin: 20px;
+            width: 50px;
+        }
+        .bang label input {
+            width: 340px;
+            height: 50px;
+        }
+        .bang {
+            margin-top: 10px;
+        }
+        .khoi2 div{
+            display: flex;
+        }
+        .khoi2 div label input{
+            width: 70px;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .khoi2 div:first-child label input{
+            background-color: #acaaaa;
+        }
+
+        .khoi2 div label:last-child input{
+            background-color: #acaaaa;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="khoi1">
+        <div class="bang">
+            <label for="nhapSo"><input type="text" id="nhapSo"></label>
+        </div>
+        <div class="khoi2">
+            <div>
+                <label for="moNgoac"><input type="button" id="moNgoac" onclick ="moNgoac()" value="("></label>
+                <label for="dongNgoac"><input type="button" id="dongNgoac" onclick="dongNgoac()" value=")"></label>
+                <label for="layDu"><input type="button" id="layDu" onclick="layDu()" value="%"></label>
+                <label for="lamMoi"><input type="reset" id="lamMoi" onclick="lamMoi()" value="AC"></label>
+            </div>
+            <div>
+                <label for="bay"><input type="button" id="bay" onclick ="so7()" value="7"></label>
+                <label for="tam"><input type="button" id="tam" onclick ="so8()" value="8"></label>
+                <label for="chin"><input type="button" id="chin" onclick ="so9()" value="9"></label>
+                <label for="chia"><input type="button" id="chia" onclick ="phepChia()" value="/"></label>
+            </div>
+            <div>
+                <label for="bon"><input type="button" id="bon" onclick ="so4()" value="4"></label>
+                <label for="nam"><input type="button" id="nam" onclick ="so5()" value="5"></label>
+                <label for="sau"><input type="button" id="sau" onclick ="so6()" value="6"></label>
+                <label for="nhan"><input type="reset" id="nhan" onclick ="phepNhan()" value="*"></label>
+            </div>
+            <div>
+                <label for="mot"><input type="button" id="mot" onclick ="so1()" value="1"></label>
+                <label for="hai"><input type="button" id="hai" onclick ="so2()" value="2"></label>
+                <label for="ba"><input type="button" id="ba" onclick ="so3()" value="3"></label>
+                <label for="tru"><input type="reset" id="tru" onclick ="phepTru()" value="-"></label>
+            </div>
+            <div>
+                <label for="khong"><input type="button" id="khong" onclick ="so0()" value="0"></label>
+                <label for="cham"><input type="button" id="cham" onclick ="cham()" value="."></label>
+                <label><input type="button" onclick="mayTinhMoRong()" value="=" style="background-color:#6363ff"></label>
+                <label for="cong"><input type="reset" id="cong" onclick ="phepCong()" value="+"></label>
+            </div>
+        </div>
+    </div>
+    <script src="may_tinh_mo_rong.js"></script>
+</div>
+</body>
+</html>

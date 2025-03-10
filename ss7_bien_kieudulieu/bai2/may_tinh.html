@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+    <style>
+        .container div {
+            display: flex;
+        }
+
+        div input {
+            width: 200px;
+            height: 30px;
+        }
+
+        label input {
+            text-align: center;
+            background: #bdbdbd;
+            margin: 40px 0 40px 0;
+            width: 100px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <h1>Máy tính</h1>
+    <div class="container">
+        <label for="so1"></label>
+        <input type="text" id="so1" name="so1">
+        <label for="so2"></label>
+        <input type="text" id="so2" name="so2">
+    </div>
+    <div>
+                <label for="cong"><input type="button" id="cong" onclick="tinhTong()" value="Cộng (+)"></label>
+                <label for="tru"><input type="button" id="tru" onclick="tinhHieu()" value="Trừ (-)"></label>
+                <label for="nhan"><input type="button" id="nhan" onclick="tinhTich()" value="Nhân (X)"></label>
+                <label for="chia"><input type="button" id="chia" onclick="tinhThuong()" value="Chia (/)"></label>
+<!--        <button type="button"  onclick="tinhTong()">Cộng (+)</button>-->
+<!--        <button type="button"  onclick="tinhHieu()">Trừ (-)</button>-->
+<!--        <button type="button"  onclick="tinhTich()">Nhân (X)</button>-->
+<!--        <button type="button"  onclick="tinhThuong()">Chia (/)</button>-->
+    </div>
+    <p id="ketQua">Kết quả: </p>
+</div>
+<script src="may_tinh.js"></script>
+</body>
+</html>

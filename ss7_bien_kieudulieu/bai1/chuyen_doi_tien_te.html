@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+    <style>
+        .container {
+            display: flex;
+            margin-top: 50px;
+            font-size: 30px;
+            justify-content: center;
+        }
+
+        #tuNuoc, input, #sangNuoc {
+            height: 40px;
+        }
+
+        .container div {
+            margin-left: 20px;
+        }
+
+        .btn {
+            border-radius: 5px;
+            background-color: blueviolet;
+            color: white;
+        }
+
+        div p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <div>
+            <label for="soTien">Số tiền</label>
+        </div>
+        <div>
+            <input type="text" id="soTien" name="soTien">
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="tuNuoc">Từ nước</label>
+        </div>
+        <div>
+            <select name="tuNuoc" id="tuNuoc">
+                <option value="vietNam">Việt Nam</option>
+                <option value="my">Mỹ</option>
+                <option value="lao">Lào</option>
+                <option value="campuchia">Campuchia</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="sangNuoc">Sang nước</label>
+        </div>
+        <div>
+            <select name="sangNuoc" id="sangNuoc">
+                <option value="vietNam">Việt Nam</option>
+                <option value="my">Mỹ</option>
+                <option value="lao">Lào</option>
+                <option value="campuchia">Campuchia</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <input type="button" value="Chuyển đổi" onclick="chuyenDoiTienTe()" class="btn">
+    </div>
+</div>
+<div>
+    <p id="ketQua" style="color: blue"></p>
+</div>
+<script src="chuyen_doi_tien_te.js"></script>
+</body>
+</html>
