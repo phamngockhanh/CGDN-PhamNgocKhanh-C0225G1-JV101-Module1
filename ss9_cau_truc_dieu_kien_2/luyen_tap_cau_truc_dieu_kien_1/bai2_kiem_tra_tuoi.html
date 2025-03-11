@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="nhapTuoi">Nhập tuổi: </label></div>
+    <div><input type="number" id="nhapTuoi" min="1"></div>
+    <p id="ketQua"></p>
+    <input type="button" onclick="kiemTraTuoi()" value="Kiểm tra">
+</div>
+</body>
+<script>
+    function kiemTraTuoi() {
+        let tuoi = +document.getElementById('nhapTuoi').value;
+        let ketQua = (tuoi === 15) ? "Được vào lớp 10" : "Không đủ điều kiện";
+        document.getElementById('ketQua').innerHTML=ketQua;
+    }
+</script>
+</html>

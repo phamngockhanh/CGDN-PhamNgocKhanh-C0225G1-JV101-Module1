@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="nhapA">Nhập a: </label></div>
+    <div><input type="text" id="nhapA"></div>
+    <div><label for="nhapB">Nhập b: </label></div>
+    <div><input type="text" id="nhapB"></div>
+    <div><label for="nhapC">Nhập c: </label></div>
+    <div><input type="text" id="nhapC"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinhToan()" value="Giải">
+</body>
+<script>
+    function tinhToan() {
+        let giaTriA = +document.getElementById('nhapA').value;
+        let giaTriB = +document.getElementById('nhapB').value;
+        let giaTriC = +document.getElementById('nhapC').value;
+        let delta = (giaTriB * giaTriB) - 4 * giaTriA * giaTriC;
+        let ketQua = document.getElementById('ketQua');
+        if (delta < 0) {
+            ketQua.innerText = ("Phương trình vô nghiệm");
+        } else if (delta === 0) {
+            ketQua.innerText = (`Phương trình có nghiệm kép là: ${-giaTriB / 2 * giaTriA}`);
+        } else {
+            let nghiem1 = (-giaTriB + Math.sqrt(delta)) / 2 * giaTriA;
+            let nghiem2 = (-giaTriB - Math.sqrt(delta)) / 2 * giaTriA;
+            ketQua.innerText = (`Phương trình có 2 nghiệm là: ${nghiem1} và ${nghiem2}`);
+        }
+    }
+</script>
+</html>

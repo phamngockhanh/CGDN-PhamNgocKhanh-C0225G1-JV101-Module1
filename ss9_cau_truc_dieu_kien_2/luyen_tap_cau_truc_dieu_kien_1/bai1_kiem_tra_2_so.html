@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="so1">Nhập a: </label></div>
+    <div><input type="text" id="so1" placeholder="Nhập a"></div>
+    <div><label for="so2">Nhập b: </label></div>
+    <div><input type="text" id="so2" placeholder="Nhập b"></div>
+    <p id="ketQua"></p>
+    <input type="button" onclick="kiemTra()" value="Kiểm tra">
+</div>
+<script>
+    function kiemTra() {
+        let so1 = +document.getElementById('so1').value;
+        let so2 = +document.getElementById('so2').value;
+        let ketQua = document.getElementById('ketQua');
+        if(so2===0){
+            ketQua.innerText=(`Không xác định`);
+        } else if (so1 % so2 === 0) {
+            ketQua.innerText = (`a chia hết cho số b`);
+        } else {
+            ketQua.innerText = (`a không chia hết cho b`);
+        }
+    }
+</script>
+</body>
+</html>

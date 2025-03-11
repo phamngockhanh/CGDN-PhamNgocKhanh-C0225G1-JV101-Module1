@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="canh">Nhập cạnh: </label>
+<input type="text" id="canh">
+<p id="ketQua"></p>
+<input type="button" onclick="tinhS()" value="Tính">
+</body>
+<script>
+    function tinhS() {
+        let canh = document.getElementById('canh').value;
+        if (canh > 0) {
+            document.getElementById('ketQua').innerText = (`Diện tích hình vuông là: ${canh * canh}`);
+        } else {
+            document.getElementById('ketQua').innerText = ("Hãy nhập giá trị hợp lệ");
+        }
+    }
+</script>
+</html>

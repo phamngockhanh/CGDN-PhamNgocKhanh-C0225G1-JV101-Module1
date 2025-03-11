@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="canhKeSo1">Cạnh kề số 1: </label></div>
+    <div><input type="text" id="canhKeSo1"></div>
+    <div><label for="canhKeSo2">Cạnh kề số 2: </label></div>
+    <div><input type="text" id="canhKeSo2"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinhS()" value="Tính">
+</body>
+<script>
+    function tinhS() {
+        let canhKeSo1 = document.getElementById('canhKeSo1').value;
+        let canhKeSo2 = document.getElementById('canhKeSo2').value;
+        if (canhKeSo1 > 0 && canhKeSo2 > 0) {
+            document.getElementById('ketQua').innerText = (`Diện tích tam giác vuông là: ${1 / 2 * canhKeSo1 * canhKeSo2}`);
+        } else {
+            document.getElementById('ketQua').innerText = ("Hãy nhập giá trị hợp lệ!!!");
+        }
+    }
+</script>
+</html>

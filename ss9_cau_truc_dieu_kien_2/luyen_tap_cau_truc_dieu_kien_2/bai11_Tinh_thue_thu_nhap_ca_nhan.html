@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <div><label for="thuNhap">Thu nhập:</label></div>
+  <div><input type="text" id="thuNhap"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinhThue()" value="Tính">
+</body>
+<script>
+  function tinhThue(){
+    let thuNhap = +document.getElementById('thuNhap').value;
+    let ketQua = document.getElementById('ketQua');
+    if(thuNhap>0){
+      if(thuNhap<=100000000){
+        ketQua.innerText=(`Thu nhập ${thuNhap} số tiền thuế là: ${thuNhap*2/100} đồng`);
+      }else if(thuNhap<=200000000){
+        ketQua.innerText=(`Thu nhập ${thuNhap} số tiền thuế là: ${thuNhap*4/100} đồng`);
+      }else if(thuNhap<=400000000){
+        ketQua.innerText=(`Thu nhập ${thuNhap} số tiền thuế là: ${thuNhap*6/100} đồng`);
+      }else if(thuNhap<=800000000){
+        ketQua.innerText=(`Thu nhập ${thuNhap} số tiền thuế là: ${thuNhap*8/100} đồng`);
+      }else{
+        ketQua.innerText=(`Thu nhập ${thuNhap} số tiền thuế là: ${thuNhap*13/100} đồng`);
+      }
+    }else{
+      ketQua.innerText=(`Thu nhập âm không có thuế`);
+    }
+  }
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="canhA">Nhập A: </label></div>
+    <div><input type="text" id="canhA"></div>
+    <div><label for="canhB">Nhập B: </label></div>
+    <div><input type="text" id="canhB"></div>
+    <div><label for="canhC">Nhập C: </label></div>
+    <div><input type="text" id="canhC"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="kiemTra()" value="Tính">
+</body>
+<script>
+    function kiemTra() {
+        let canhA = +document.getElementById('canhA').value;
+        let canhB = +document.getElementById('canhB').value;
+        let canhC = +document.getElementById('canhC').value;
+        let ketQua = document.getElementById('ketQua');
+        if (canhA > 0 && canhB > 0 && canhC > 0) {
+            if ((canhA + canhB) > canhC && (canhB + canhC) > canhA && (canhA + canhC) > canhB) {
+                ketQua.innerText = ("Hình này là tam giác");
+            } else {
+                ketQua.innerText = ("Không phải là tam giác");
+            }
+        }else{
+            ketQua.innerText = ("Không phải là tam giác");
+        }
+    }
+</script>
+</html>

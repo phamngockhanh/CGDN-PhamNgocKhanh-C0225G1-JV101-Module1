@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <div><label for="soDien">Nhập số điện của hộ gia đình: </label></div>
+  <div><input type="text" id="soDien"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinhCuoc()" value="Cước điện">
+</body>
+<script>
+  function tinhCuoc(){
+    let soDien = +document.getElementById('soDien').value;
+    let ketQua= document.getElementById('ketQua');
+    if(soDien<0){
+      ketQua.innerText=("Nhập lại số điện");
+    }else if(soDien<100){
+      ketQua.innerText=(`Số điện nhỏ hơn ${soDien} số tiền phải đóng là ${soDien*2300}đồng`)
+    }else if(soDien<200){
+      ketQua.innerText=(`Số điện nhỏ hơn ${soDien} số tiền phải đóng là ${soDien*2500} đồng`)
+    }else if(soDien<=300){
+      ketQua.innerText=(`Số điện nhỏ hơn ${soDien} số tiền phải đóng là ${soDien*2700} đồng`)
+    }else{
+      ketQua.innerText=(`Số điện lớn hơn ${soDien} số tiền phải đóng là ${soDien*3000} đồng`)
+    }
+  }
+</script>
+</html>

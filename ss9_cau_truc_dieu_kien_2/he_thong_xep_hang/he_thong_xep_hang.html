@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="matchesPlayed">Số trận đã chơi: </label></div>
+    <div><input type="text" id="matchesPlayed"></div>
+    <div><label for="winMatches">Số trận thắng: </label></div>
+    <div><input type="text" id="winMatches"></div>
+    <div><label for="mainScore">Điểm chính: </label></div>
+    <div><input type="text" id="mainScore"></div>
+</div>
+<p id="winRate"></p>
+<p id="rate"></p>
+<input type="button" onclick="kiemTra()" value="Kiểm Tra">
+</body>
+<script>
+    function kiemTra() {
+        let mainScore = +document.getElementById('mainScore').value;
+        let winMatches = +document.getElementById('winMatches').value;
+        let matchesPlayed = +document.getElementById('matchesPlayed').value;
+        let winRate = (winMatches / matchesPlayed) * 100;
+        let winRating = document.getElementById('winRate');
+        let rate = document.getElementById('rate');
+        if (winMatches < matchesPlayed) {
+            winRating.innerText = (`Tỉ lệ thắng: ${winRate}`);
+            if (matchesPlayed < 5) {
+                rate.innerText = (`Tân binh`);
+            } else if (mainScore < 1000 || winRate < 0.5) {
+                rate.innerText = (`Đồng`);
+            } else if (mainScore >= 1000 && winRate >= 0.5 && mainScore < 5000) {
+                rate.innerText = (`Bạc`);
+            } else if (mainScore >= 5000 && mainScore < 10000 && winRate >= 0.6) {
+                rate.innerText = (`Vàng`);
+            } else if (mainScore >= 10000 && winRate >= 0.7) {
+                rate.innerText = (`Vàng`);
+            }
+        } else {
+            rate.innerText = ("Nhập lại giá trị!!!!")
+        }
+    }
+</script>
+</html>

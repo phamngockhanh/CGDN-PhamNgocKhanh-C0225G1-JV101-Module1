@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Năm nhuận</title>
+</head>
+<body>
+<h1>Thực hành 1: Kiểm tra năm nhuận</h1>
+<label for="nam">Kiểm tra năm nhuận:</label>
+    <input type="text" id="nam">
+
+<button type="button" onclick="kiemTraNamNhuan()" >Gửi</button>
+</body>
+<p id="ketQua"></p>
+<script>
+    function kiemTraNamNhuan(){
+        let nam = document.getElementById("nam").value;
+        if(nam%400===0){
+            document.getElementById("ketQua").innerText=("Là năm nhuận");
+        }
+        else if(nam%4===0&&nam%100!==0){
+            document.getElementById("ketQua").innerText=("Là năm nhuận");
+        }
+        else{
+            document.getElementById("ketQua").innerText=("Là năm không nhuận");
+        }
+    }
+</script>
+</html>

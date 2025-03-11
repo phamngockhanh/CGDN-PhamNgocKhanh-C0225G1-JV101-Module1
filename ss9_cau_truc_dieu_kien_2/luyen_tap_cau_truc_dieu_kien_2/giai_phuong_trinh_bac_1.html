@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="nhapA">Nhập a: </label></div>
+    <div><input type="text" id="nhapA"></div>
+    <div><label for="nhapB">Nhập b: </label></div>
+    <div><input type="text" id="nhapB"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinhToan()" value="Tính toán">
+</body>
+<script>
+    function tinhToan() {
+        let giaTriA = +document.getElementById('nhapA').value;
+        let giaTriB = +document.getElementById('nhapB').value;
+        let ketQua = document.getElementById('ketQua');
+        if (giaTriA === 0) {
+            if (giaTriB === 0) {
+                ketQua.innerText = ("Phương trình vô số nghiệm!!!");
+            } else {
+                ketQua.innerText = ("Phương trình vô nghiệm!!!");
+            }
+        } else {
+            ketQua.innerText = (`Kết quả là ${-giaTriB / giaTriA}`);
+        }
+    }
+</script>
+</html>

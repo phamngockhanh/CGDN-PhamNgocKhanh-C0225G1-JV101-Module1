@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="doanhSo">Nhập doanh số</label></div>
+    <div><input type="text" id="doanhSo"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="doanhSo()" value="Tính hoa hồng">
+</body>
+<script>
+    function doanhSo() {
+        let doanhSo = +document.getElementById('doanhSo').value;
+        let ketQua = document.getElementById('ketQua');
+        if(doanhSo<0){
+            ketQua.innerText=(`Doanh số âm không có hoa hồng`);
+        }else if(doanhSo<=1000000){
+            let hoaHong = (doanhSo*5)/100;
+            ketQua.innerText=(`Hoa hồng bạn nhận được là: ${hoaHong}`);
+        }else if(doanhSo<2000000){
+            let hoaHong = (doanhSo*8)/100;
+            ketQua.innerText=(`Hoa hồng bạn nhận được là: ${hoaHong}`);
+        }else if(doanhSo<4000000){
+            let hoaHong = (doanhSo*10)/100;
+            ketQua.innerText=(`Hoa hồng bạn nhận được là: ${hoaHong}`);
+        }else if(doanhSo<8000000){
+            let hoaHong = (doanhSo*14)/100;
+            ketQua.innerText=(`Hoa hồng bạn nhận được là: ${hoaHong}`);
+        }else {
+            let hoaHong = (doanhSo*20)/100;
+            ketQua.innerText=(`Hoa hồng bạn nhận được là: ${hoaHong}`);
+        }
+    }
+</script>
+</html>

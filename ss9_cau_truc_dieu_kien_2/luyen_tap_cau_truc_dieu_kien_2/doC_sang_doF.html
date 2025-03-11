@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="doC">Nhập độ C: </label></div>
+    <div><input type="text" id="doC"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="chuyenDoi()" value="Chuyển đổi">
+</body>
+<script>
+    function chuyenDoi() {
+        let doC = document.getElementById('doC').value;
+        if (doC) {
+            document.getElementById('ketQua').innerText = (`Độ F: ${doC * 9 / 5 + 32}`);
+        }else{
+            document.getElementById('ketQua').innerText = ("Nhập giá trị hợp lệ");
+        }
+    }
+</script>
+</html>

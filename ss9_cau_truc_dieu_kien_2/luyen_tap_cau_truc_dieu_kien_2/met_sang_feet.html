@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="met">Nhập số (m): </label></div>
+    <div><input type="text" id="met"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="met()" value="Chuyển sang feet">
+</body>
+<script>
+    function met() {
+        let met = document.getElementById("met").value;
+        let ft = met * 3.2808;
+        if (met > 0) {
+            document.getElementById('ketQua').innerText = (`Feet: ${ft}`);
+        }else{
+            document.getElementById('ketQua').innerText = ("Hãy nhập giá trị hợp lệ!!!!");
+        }
+    }
+</script>
+</html>

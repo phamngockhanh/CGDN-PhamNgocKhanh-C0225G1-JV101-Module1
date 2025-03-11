@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="soTienBanDau">Số tiền ban đầu: </label></div>
+    <div><input type="text" id="soTienBanDau"></div>
+    <div><label for="soThangChoVay">Số tháng cho vay: </label></div>
+    <div><input type="text" id="soThangChoVay"></div>
+    <div><label for="laiSuatBanDau">Lãi suất ban đầu:</label></div>
+    <div><input type="text" id="laiSuatBanDau"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinhTienLai()" value="Tính tiền lãi">
+</body>
+<script>
+    function tinhTienLai() {
+        let soTienBanDau = +document.getElementById('soTienBanDau').value;
+        let soThangChoVay = +document.getElementById('soThangChoVay').value;
+        let laiSuatBanDau = +document.getElementById('laiSuatBanDau').value;
+        let tongSoTienLai = null;
+        let soTienLai = document.getElementById('ketQua');
+        for (let i = 0; i < soThangChoVay; i++) {
+            let soTienLaiTheoThang = soTienBanDau * laiSuatBanDau;
+            tongSoTienLai +=soTienLaiTheoThang;
+            soTienLai.innerText = (`Tháng thứ ${i} tiền lãi phải đóng thêm là ${tongSoTienLai}`);
+        }
+    }
+</script>
+</html>

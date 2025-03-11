@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phương trình bậc 1</title>
+</head>
+<body>
+<label for="so1">Nhập so 1: </label>
+<input type="text" id="so1"> <br>
+<label for="so2">Nhập so 2: </label>
+<input type="text" id="so2">
+</body>
+<p id="ketQua"></p>
+<input type="button" onclick="phuongtrinhBac1()" value="Tính">
+<script>
+    function phuongtrinhBac1() {
+        let so1 = +document.getElementById('so1').value;
+        let so2 = +document.getElementById('so2').value;
+        let ketQua =document.getElementById("ketQua");
+        let x = null;
+        if (so1 === 0 && so2 === 0) {
+            ketQua.textContent = "Phương trình vô số nghiệm";
+        }else if(so1===0){
+            ketQua.textContent="Phương trình vô nghiệm";
+        }else{
+            x = (-so2)/so1;
+            ketQua.textContent=`Kết quả là: ${x}`;
+        }
+    }
+</script>
+</html>

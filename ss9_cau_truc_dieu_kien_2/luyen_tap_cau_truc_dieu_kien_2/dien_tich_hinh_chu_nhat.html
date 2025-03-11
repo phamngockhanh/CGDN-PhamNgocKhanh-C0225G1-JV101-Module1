@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="chieuDai">Nhập chiều dài: </label></div>
+    <div><input type="text" id="chieuDai"></div>
+    <div><label for="chieuRong">Nhập chiều rộng: </label></div>
+    <div><input type="text" id="chieuRong"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="dienTich()" value="Tính">
+</body>
+<script>
+    function dienTich() {
+        let chieuDai = document.getElementById('chieuDai').value;
+        let chieuRong = document.getElementById('chieuRong').value;
+        if (chieuDai > 0 && chieuRong > 0) {
+            document.getElementById('ketQua').innerText = (`Diện tích là: ${chieuDai * chieuRong}`);
+        }else{
+            document.getElementById('ketQua').innerText = ("Hãy nhập giá trị hợp lệ!!!");
+        }
+    }
+</script>
+</html>

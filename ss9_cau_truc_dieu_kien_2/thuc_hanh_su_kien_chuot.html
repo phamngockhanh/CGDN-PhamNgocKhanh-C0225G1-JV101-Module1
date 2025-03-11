@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="nobita.png" alt="ảnh bóng đá" id="myImage" style="width: 200px;height: 200px;">
+<p id="phim"></p>
+<label><input type="text" id="myInput" placeholder="Nhập vào đây"></label>
+
+<p>Click button below to move the image to right</p>
+<button type="button" onclick="moveRight()">Move Right</button>
+<button type="button" onclick="moveLeft()">Move Left</button>
+<button type="button" onclick="moveBot()">Move Bot</button>
+<button type="button" onclick="moveTop()">Move Top</button>
+</body>
+<script>
+    let output = document.getElementById('phim');
+    let imgObj = null;
+    imgObj = document.getElementById('');
+
+    function init() {
+        imgObj = document.getElementById('myImage');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+        imgObj.style.bottom = '0px';
+    }
+
+    document.addEventListener('keydown', function (event) {
+        output.textContent = `Bạn vừa nhấn phím: ${event.key}`;
+        if (event.key === "ArrowRight") {
+            imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+        } else if (event.key === "ArrowLeft") {
+            imgObj.style.left = parseInt(imgObj.style.left) - 10 + 'px'
+        } else if (event.key === "ArrowDown") {
+            imgObj.style.bottom = parseInt(imgObj.style.bottom) - 10 + 'px'
+        } else {
+            imgObj.style.bottom = parseInt(imgObj.style.bottom) + 10 + 'px'
+        }
+    });
+
+    function moveRight() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px'
+    }
+
+    function moveLeft() {
+        imgObj.style.left = parseInt(imgObj.style.left) - 10 + 'px'
+    }
+
+    function moveBot() {
+        imgObj.style.bottom = parseInt(imgObj.style.bottom) - 10 + 'px'
+    }
+
+    function moveTop() {
+        imgObj.style.bottom = parseInt(imgObj.style.bottom) + 10 + 'px'
+    }
+
+
+    window.onload = init;
+</script>
+</html>

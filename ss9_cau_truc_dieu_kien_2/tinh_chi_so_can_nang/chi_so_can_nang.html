@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính chỉ số cân nặng</h1>
+<div>
+    <div><label for="canNang">Cân nặng: </label></div>
+    <div><input type="text" id="canNang"></div>
+    <div><label for="chieuCao">Chiều cao:</label></div>
+    <div><input type="text" id="chieuCao"></div>
+    <div><p id="ketQua"></p></div>
+    <input type="button" onclick="chiSoCanNang()" value="Tính">
+</div>
+</body>
+<script>
+    function chiSoCanNang() {
+        let canNang = parseFloat(document.getElementById('canNang').value);
+        let chieuCao = parseFloat(document.getElementById('chieuCao').value);
+        let ketQua = document.getElementById('ketQua');
+        let chiSoKhoiCoThe = canNang / (chieuCao * chieuCao);
+        if (chiSoKhoiCoThe < 18.5) {
+            ketQua.innerHTML = (`Chỉ số khối cơ thể là: ${chiSoKhoiCoThe} <br>
+                Chỉ số này dưới 18.5, nên được phân loại là <b>Underweight</b> (Teo cơ)`);
+        } else if ( chiSoKhoiCoThe < 25.0) {
+            ketQua.innerHTML = (`Chỉ số khối cơ thể là: ${chiSoKhoiCoThe} <br>
+                Chỉ số này trong khoảng 18.5 đến 25.0, nên được phân loại là <b>Normal</b> (Bình thường)`);
+        } else if (chiSoKhoiCoThe < 30.0) {
+            ketQua.innerHTML = (`Chỉ số khối cơ thể là: ${chiSoKhoiCoThe} <br>
+                Chỉ số này trong khoảng 25.0 đến 30.0, nên được phân loại là <b>Overweight</b> (Thừa cân)`);
+        } else {
+            ketQua.innerHTML = (`Chỉ số khối cơ thể là: ${chiSoKhoiCoThe} <br>
+                Chỉ số này lớn hơn hoặc bằng 30.0, nên được phân loại là <b>Obese</b> (Béo phì)`);
+        }
+    }
+</script>
+</html>

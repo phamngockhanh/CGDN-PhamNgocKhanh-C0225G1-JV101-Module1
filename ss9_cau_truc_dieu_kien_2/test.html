@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyup và Keydown Demo</title>
+</head>
+<body>
+<input type="text" id="inputField" placeholder="Nhập văn bản ở đây">
+<p id="output"></p>
+
+<script>
+    const inputField = document.getElementById('inputField');
+    const output = document.getElementById('output');
+
+    // Sự kiện keydown
+    inputField.addEventListener('keydown', (event) => {
+        output.textContent = `Bạn vừa nhấn phím: ${event.key}`;
+    });
+
+    // Sự kiện keyup
+    inputField.addEventListener('keyup', (event) => {
+        output.textContent = `Bạn vừa thả phím: ${event.key}`;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            text-align: center;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Do you love me?</h1>
+    <label><input type="button" onclick="yes()" value="Yes"></label>
+    <label><input type="button" id="no"  value="No"></label>
+</div>
+</body>
+<script>
+    const element = document.getElementById('no');
+    let bigRandom = Math.floor(Math.random()*200);
+    function yes(){
+        alert("Yes, you are right");
+    }
+    function init(){
+        element.style.position='relative';
+        element.style.left ='0px';
+        element.style.bottom ='0px';
+    }
+    element.addEventListener('mouseover',no);
+    function no(){
+        element.style.bottom=parseInt(element.style.bottom)-bigRandom+'px';
+        element.style.left=parseInt(element.style.left)+bigRandom+'px';
+    }
+    window.onload=init;
+
+</script>
+</html>
