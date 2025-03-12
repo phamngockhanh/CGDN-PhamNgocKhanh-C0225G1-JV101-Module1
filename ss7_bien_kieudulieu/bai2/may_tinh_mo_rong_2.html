@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+    <style>
+        .khoi1 {
+            border: 2px solid gray;
+            margin-right: 83%;
+        }
+
+        div label {
+            margin: 20px;
+            width: 50px;
+        }
+
+        .bang label input {
+            width: 340px;
+            height: 50px;
+        }
+
+        .bang {
+            margin-top: 10px;
+        }
+
+        .khoi2 div {
+            display: flex;
+        }
+
+        .khoi2 div label input {
+            width: 70px;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .khoi2 div:first-child label input {
+            background-color: #acaaaa;
+        }
+
+        .khoi2 div label:last-child input {
+            background-color: #acaaaa;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="khoi1">
+        <div class="bang">
+            <label for="nhapSo"><input type="text" id="nhapSo"></label>
+        </div>
+        <div class="khoi2">
+            <div>
+                <label><input type="button" onclick="kyTu(this.value)" value="("></label>
+                <label><input type="button" onclick="kyTu(this.value)" value=")"></label>
+                <label><input type="button" onclick="kyTu(this.value)" value="%"></label>
+                <label><input type="reset" onclick="reset()" value="AC"></label>
+            </div>
+            <div>
+                <label><input type="button" onclick="kyTu(this.value)" value="7"></label>
+                <label><input type="button" onclick="kyTu(this.value)" value="8"></label>
+                <label><input type="button" onclick="kyTu(this.value)" value="9"></label>
+                <label><input type="button" onclick="kyTu(this.value)" value="/"></label>
+            </div>
+            <div>
+                <label><input type="button" onclick="kyTu(this.value)" value="4"></label>
+                <label><input type="button" onclick="kyTu(this.value)" value="5"></label>
+                <label><input type="button" onclick="kyTu(this.value)" value="6"></label>
+                <label><input type="reset" onclick="kyTu(this.value)" value="*"></label>
+            </div>
+            <div>
+                <label><input type="button" id="mot" onclick="kyTu(this.value)" value="1"></label>
+                <label><input type="button" id="hai" onclick="kyTu(this.value)" value="2"></label>
+                <label><input type="button" id="ba" onclick="kyTu(this.value)" value="3"></label>
+                <label><input type="reset" id="tru" onclick="kyTu(this.value)" value="-"></label>
+            </div>
+            <div>
+                <label><input type="button" id="khong" onclick="kyTu(this.value)" value="0"></label>
+                <label><input type="button" id="cham" onclick="kyTu(this.value)" value="."></label>
+                <label><input type="button" onclick="mayTinhMoRong()" value="="
+                              style="background-color:#6363ff"></label>
+                <label><input type="reset" id="cong" onclick="kyTu(this.value)" value="+"></label>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function kyTu(value) {
+        document.getElementById('nhapSo').value+=value;
+    }
+    function reset() {
+        document.getElementById('nhapSo').value="";
+    }
+    function mayTinhMoRong(){
+        let bieuThuc = document.getElementById("nhapSo").value;
+        let ketQua = eval(bieuThuc);
+        document.getElementById("nhapSo").value=`${ketQua}`;
+    }
+</script>
+</html>
