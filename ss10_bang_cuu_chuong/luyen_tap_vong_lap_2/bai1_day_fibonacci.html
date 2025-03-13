@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="nhapSo"></label></div>
+    <div><input type="text" id="nhapSo"></div>
+</div>
+<p id="ketQua"></p>
+<input type="button" value="In ra" onclick="inRa()">
+</body>
+<script>
+    function inRa() {
+        let nhapSo = +document.getElementById("nhapSo").value;
+        let f = 0;
+        let f1 = 0;
+        let f2 = 0;
+        for (let i = 0; i < nhapSo; i++) {
+            f = f1 + f2;
+            f1 = f2;
+            f2 = f;
+            document.getElementById("ketQua").innerHTML += (`${f}<br>`);
+            if (f === 0) {
+                f1 = 1;
+            }
+        }
+    }
+</script>
+</html>

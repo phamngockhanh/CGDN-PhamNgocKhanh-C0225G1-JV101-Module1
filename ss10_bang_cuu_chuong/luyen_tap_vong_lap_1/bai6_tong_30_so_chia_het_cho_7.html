@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label for="nhapSo">Bạn muốn tính tổng bao nhiêu số: </label>
+    <input type="text" id="nhapSo">
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinhTong()" value="Tính toán">
+</body>
+<script>
+    function tinhTong() {
+        let nhapSo = +document.getElementById("nhapSo").value;
+        let dem = 0;
+        let n = 0;
+        let sum = 0;
+        while (dem < nhapSo) {
+            if (n % 7 === 0) {
+                sum += n;
+                n += 7;
+                dem++;
+            }
+        }
+        document.getElementById("ketQua").innerText = (`${sum}`);
+    }
+</script>
+</html>

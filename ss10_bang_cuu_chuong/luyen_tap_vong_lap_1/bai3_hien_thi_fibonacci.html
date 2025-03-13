@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>
+        <label for="nhapSo">Nhập số: </label>
+        <input type="text" id="nhapSo">
+    </div>
+</div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinh()" value="Tính">
+</body>
+<script>
+
+    function tinh() {
+        let nhapSo = +document.getElementById("nhapSo").value;
+        let dem = 0;
+        let f = 0;
+        let f1 = 0;
+        let f2 = 0;
+        while (dem < nhapSo) {
+            for (let i = 0; i < nhapSo; i++) {
+                f = f1 + f2;
+                f1 = f2;
+                f2 = f;
+                document.getElementById("ketQua").innerHTML += (`${f}<br>`);
+                if (f === 0) {
+                    f1 = 1;
+                }
+                dem++;
+            }
+        }
+    }
+
+</script>
+</html>

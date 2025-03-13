@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>
+        <label for="so">Nhập số:</label>
+        <input type="text" id="so">
+    </div>
+    <p id="ketQua"></p>
+    <input type="button" onclick="tinhToan()" value="Tính toán">
+</div>
+</body>
+<script>
+    function tinhToan() {
+        let so = +document.getElementById("so").value;
+        let f = 0;
+        let f1 = 0;
+        let f2 = 0;
+        let sum = 0;
+        for (let i = 0; i <= so; i++) {
+            f = f1 + f2;
+            f1 = f2;
+            f2 = f;
+            if (f === 0) {
+                f1 = 1;
+            }
+            sum += f;
+            document.getElementById("ketQua").innerText = (`${sum}`);
+        }
+    }
+</script>
+</html>

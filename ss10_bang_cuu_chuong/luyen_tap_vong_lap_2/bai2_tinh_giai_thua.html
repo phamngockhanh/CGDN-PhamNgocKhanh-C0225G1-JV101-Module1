@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label for="nhapSo"></label>
+    <input type="text" id="nhapSo">
+</div>
+<p id="ketQua"></p>
+<input type="button" value="Kết quả" onclick="ketQua()">
+</body>
+<script>
+    function ketQua() {
+        let nhapSo = +document.getElementById("nhapSo").value;
+        let k = 1;
+        for (let i = nhapSo; i > 0; i--) {
+            k *= i;
+        }
+        document.getElementById("ketQua").innerHTML = (`Giai thừa của ${nhapSo} là ${k}`);
+    }
+</script>
+</html>

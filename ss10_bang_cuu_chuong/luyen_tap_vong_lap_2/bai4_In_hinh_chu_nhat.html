@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="ketQua"></p>
+</body>
+<script>
+    for (let i = 1; i <= 7; i++) {
+        for (let j = 1; j <= 21; j++) {
+            if (i >= 2 && i <= 6) {
+                if (j === 1 || j === 21) {
+                    document.getElementById("ketQua").innerHTML += ("*");
+                } else {
+                    document.getElementById("ketQua").innerHTML += ("&nbsp&nbsp");
+                }
+            } else {
+                document.getElementById("ketQua").innerHTML += ("*");
+            }
+        }
+        document.getElementById("ketQua").innerHTML += ("<br>");
+    }
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div>-->
+<!--    <div>-->
+<!--        <p>Nhập khoảng giá trị mà bạn muốn đoán</p>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label for="tu">Từ số: </label>-->
+<!--        <input type="text" id="tu">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label for="den">Đến số: </label>-->
+<!--        <input type="text" id="den">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label for="doan">Đoán số</label>-->
+<!--        <input type="text" id="doan">-->
+<!--    </div>-->
+<!--</div>-->
+<!--<p id="ketQua"></p>-->
+<!--<input type="button" value="Đoán" onclick="doan()">-->
+</body>
+<script>
+    function chonSoNgauNhien(tu, den) {
+        return Math.floor(Math.random() * (den - tu + 1) + tu);
+    }
+    let tu = +prompt("Từ số");
+    let den = +prompt("Đến số");
+    let soLanDoan = 0;
+    do {
+        let doan = +prompt("Nhập số mà bạn muốn đoán");
+        if (doan === chonSoNgauNhien(tu, den)) {
+            alert("Bạn đoán đúng rồi");
+            break;
+        } else {
+            alert("Bạn đoán lại đi");
+            soLanDoan++;
+        }
+        if(soK)
+    } while (soLanDoan < 3)
+
+</script>
+</html>

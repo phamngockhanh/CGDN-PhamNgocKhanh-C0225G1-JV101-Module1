@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p id="hinhVuong1"></p>
+    <p id="hinhVuong2"></p>
+    <p id="hinhVuong3"></p>
+    <p id="hinhVuong4"></p>
+</div>
+<input type="button" value="In ra" onclick="hinhVuong()">
+</body>
+<script>
+    function hinhVuong() {
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.getElementById("hinhVuong1").innerHTML += (`*`);
+            }
+            document.getElementById("hinhVuong1").innerHTML += (`<br>`);
+        }
+
+        for (let i = 5; i > 0; i--) {
+            for (let j = i; j > 0; j--) {
+                document.getElementById("hinhVuong2").innerHTML += (`*`);
+            }
+            document.getElementById("hinhVuong2").innerHTML += (`<br>`);
+        }
+
+        // for (let i = 1; i <= 5; i++) {
+        //     for (let j = i; j <= 5; j++) {
+        //         document.getElementById("hinhVuong3").innerHTML += (`*`);
+        //     }
+        //     document.getElementById("hinhVuong3").innerHTML += (`<br>`);
+        // }
+
+        for (let i = 1; i <= 5; i++) {
+            for (let j = i; j <= 4; j++) {
+                document.getElementById("hinhVuong3").innerHTML += ("&nbsp&nbsp");
+            }
+            for (let j = 1; j <= i; j++) {
+                document.getElementById("hinhVuong3").innerHTML += (`*`);
+            }
+            document.getElementById("hinhVuong3").innerHTML += (`<br>`);
+        }
+
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 0; j < i - 1; j++) {
+                document.getElementById("hinhVuong3").innerHTML += (`&nbsp&nbsp`);
+            }
+            for (let j = i; j <= 5; j++) {
+                document.getElementById("hinhVuong3").innerHTML += (`*`);
+            }
+            document.getElementById("hinhVuong3").innerHTML += (`<br>`);
+        }
+    }
+</script>
+</html>

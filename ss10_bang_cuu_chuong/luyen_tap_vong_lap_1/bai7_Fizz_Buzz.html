@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="tu">Từ:</label></div>
+    <div><input type="text" id="tu"></div>
+    <div><label for="den">Đến:</label></div>
+    <div><input type="text" id="den"></div>
+</div>
+<div id="ketQua"></div>
+<input type="button" value="In ra" onclick="inRa()">
+</body>
+<script>
+    function inRa() {
+        let tu = +document.getElementById("tu").value;
+        let den = +document.getElementById("den").value;
+        let ketQua = document.getElementById("ketQua");
+        for (tu; tu <= den; tu++) {
+            if (tu % 3 === 0 && tu % 5 === 0) {
+                ketQua.innerHTML += ("FizzBuzz<br>");
+            } else if (tu % 3 === 0) {
+                ketQua.innerHTML += ("Fizz<br>");
+            } else if (tu % 5 === 0) {
+                ketQua.innerHTML += ("Buzz<br>");
+            } else {
+                ketQua.innerHTML += (`${tu}<br>`);
+            }
+
+        }
+
+    }
+</script>
+</html>

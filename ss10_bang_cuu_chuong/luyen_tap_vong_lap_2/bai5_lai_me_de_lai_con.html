@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính lãi mẹ đẻ lãi con</h1>
+<div><label for="soTienBanDau">Số tiền ban đầu: </label></div>
+<div><input type="text" id="soTienBanDau"></div>
+<div><label for="soThangChoVay">Số tháng cho vay: </label></div>
+<div><input type="text" id="soThangChoVay"></div>
+<div><label for="laiSuat">Lãi suất(%): </label></div>
+<div><input type="text" id="laiSuat"></div>
+<p id="ketQua"></p>
+<input type="button" value="Tính" onclick="tinh()">
+</body>
+<script>
+    function tinh() {
+        let soTienBanDau = +document.getElementById("soTienBanDau").value;
+        let soThangChoVay = +document.getElementById("soThangChoVay").value;
+        let laiSuat = +document.getElementById("laiSuat").value;
+        let tongSoTienLai =  0;
+        for (let i = 1; i <=soThangChoVay;i++){
+            let soTienLaiTheoThang = soTienBanDau*laiSuat;
+            tongSoTienLai += soTienLaiTheoThang;
+        }
+        document.getElementById("ketQua").innerHTML=(`Số tiền lãi sau ${soThangChoVay} tháng là ${tongSoTienLai}`);
+    }
+</script>
+</html>

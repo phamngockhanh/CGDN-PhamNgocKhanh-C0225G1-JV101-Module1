@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="ketQua"></p>
+<input type="button" value="In ra" onclick="inRa()">
+</body>
+<script>
+    function inRa() {
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 0; j < i - 1; j++) {
+                document.getElementById("ketQua").innerHTML += (`&nbsp`);
+            }
+            for (let j = i; j <= 5; j++) {
+                if (i === 2 || i === 3) {
+                    if (i === 2) {
+                        if (j === 2 || j === 3) {
+                            document.getElementById("ketQua").innerHTML += (`&nbsp&nbsp`);
+                        }
+                    } else if (i === 3) {
+                        if (j === 2) {
+                            document.getElementById("ketQua").innerHTML += (`&nbsp&nbsp`);
+                        }
+                    }else{
+                        document.getElementById("ketQua").innerHTML += (`*`);
+                    }
+                } else {
+                    document.getElementById("ketQua").innerHTML += (`*`);
+                }
+            }
+            document.getElementById("ketQua").innerHTML += (`<br>`);
+        }
+        for (let i = 1; i <= 5; i++) {
+            for (let j = i; j <= 4; j++) {
+                document.getElementById("ketQua").innerHTML += ("&nbsp");
+            }
+            for (let j = 1; j <= i; j++) {
+                document.getElementById("ketQua").innerHTML += (`*`);
+            }
+            document.getElementById("ketQua").innerHTML += (`<br>`);
+        }
+    }
+</script>
+</html>
