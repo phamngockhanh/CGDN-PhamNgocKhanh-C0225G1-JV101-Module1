@@ -29,20 +29,25 @@
     function chonSoNgauNhien(tu, den) {
         return Math.floor(Math.random() * (den - tu + 1) + tu);
     }
+
     let tu = +prompt("Từ số");
     let den = +prompt("Đến số");
     let soLanDoan = 0;
     do {
         let doan = +prompt("Nhập số mà bạn muốn đoán");
-        if (doan === chonSoNgauNhien(tu, den)) {
+        let soNgauNhien = chonSoNgauNhien(tu, den);
+        if (doan === soNgauNhien) {
             alert("Bạn đoán đúng rồi");
             break;
+        } else if (doan < soNgauNhien) {
+            alert("Số bạn đoán nhỏ hơn");
+            soLanDoan++;
         } else {
-            alert("Bạn đoán lại đi");
+            alert("Số bạn đoán lớn hơn");
             soLanDoan++;
         }
-        if(soK)
-    } while (soLanDoan < 3)
+    }
+    while (soLanDoan < 3)
 
 </script>
 </html>
