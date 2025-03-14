@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách</title>
+</head>
+<body>
+<script>
+    let danhSach;
+    do{
+        danhSach  = +prompt(
+            "----------------------Danh sách sinh viên------------------------\n" +
+            "Hãy nhập số để chọn đồ uống \n" +
+            "1. Hiển thị danh sách sinh viên \n" +
+            "2. Thêm mới sinh viên \n" +
+            "3. Xóa sinh viên \n" +
+            "4. Kết thúc sinh viên \n" );
+        if(danhSach === 1){
+            alert("Đây là danh sách sinh viên");
+        }else if(danhSach === 2){
+            alert("Đây là chức năng thêm mới sinh viên");
+        }else if(danhSach ===3){
+            alert("Đây là chức năng xóa sinh viên");
+        }else if(danhSach===4){
+            let a = window.confirm("Bạn có muốn thoát chương trình không?");
+            if (a === true) {
+                break;
+            }
+        }else{
+            let a= window.confirm("Vui lòng nhập lại");
+            if(a===true){
+                break;
+            }
+        }
+    }while(true);
+</script>
+</body>
+</html>

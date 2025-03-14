@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let danhSach;
+    let tongTien = 0;
+    let doUongDaChon ="";
+    let doUongDaChon2 ="";
+    let doUongDaChon3="";
+    let cafe =0;
+    let cacao =0;
+    let cam =0;
+    do {
+
+        danhSach = +prompt(
+            "----------------------Menu------------------------\n" +
+            "Hãy nhập số để chọn đồ uống \n" +
+            "1. Cafe: 10K \n" +
+            "2. Cacao: 15K \n" +
+            "3. Nước cam: 20K \n" +
+            "4. Kết thúc \n"+
+            "-----------------Danh sách đã chọn------------------\n" +
+            `${doUongDaChon}\n` +
+            `${doUongDaChon2}\n` +
+            `${doUongDaChon3}\n`+
+            `Tổng tiền: ${tongTien} K`
+        );
+        switch (danhSach) {
+            case 1:
+                cafe +=1;
+                tongTien += 10;
+                doUongDaChon = `Cafe          Số lượng:${cafe}`;
+                break;
+            case 2:
+                cacao +=1;
+                tongTien += 15;
+                doUongDaChon2 = `Cacao         Số lượng:${cacao}`;
+                break;
+            case 3:
+                cam+=1;
+                tongTien += 20;
+                doUongDaChon3 = `Nước cam       Số lượng:${cam}`;
+                break;
+            case 4:
+                break;
+            default:
+                alert("Vui lòng nhập lại");
+                break;
+        }
+        if (danhSach === 4) {
+            let a = window.confirm("Bạn có muốn thoát chương trình không?");
+            if (a === true) {
+                break;
+            }
+        }
+    } while (true);
+</script>
+</body>
+</html>
