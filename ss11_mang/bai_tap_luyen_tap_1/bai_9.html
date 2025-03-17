@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let aLength = +prompt(`Enter "a" array length: `);
+    let bLength = +prompt(`Enter "b" array length: `);
+    let aArray = new Array(aLength);
+    let bArray = new Array(bLength);
+
+    for (let i = 0; i < aArray.length; i++) {
+        aArray[i] = prompt(`At position ${i} in array A has value: `);
+    }
+    for (let i = 0; i < bArray.length; i++) {
+        bArray[i] = prompt(`At position ${i} in array B has value: `);
+    }
+    let cArray = aArray.concat(bArray);
+    for (let i = 0; i < cArray.length; i++) {
+        document.write(`${cArray[i]} `);
+    }
+</script>
+</html>

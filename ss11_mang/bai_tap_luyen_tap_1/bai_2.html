@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let length = +prompt("Array length: ");
+    let arr = new Array(length);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`At position ${i} input value : `);
+    }
+    let max = arr[0];
+    let index = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
+            index = i;
+
+        }
+    }
+    document.write(`Biggest number is: ${max} <br>`);
+    document.write(`At position: ${index}`);
+</script>
+</html>

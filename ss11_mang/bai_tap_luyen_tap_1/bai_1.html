@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let length = +prompt("Array Length: ");
+    let array = new Array(length);
+    let value = "0";
+    let count =0;
+    for(let  i  =0;i<array.length;i++){
+        value = +prompt(`At position ${i} have value: `);
+        array[i] = value;
+    }
+    for(let i = 0 ;i<array.length;i++){
+        if(array[i]>10){
+            count++;
+        }
+    }
+    alert(`Array have ${count} number greater than 10`);
+</script>
+</html>

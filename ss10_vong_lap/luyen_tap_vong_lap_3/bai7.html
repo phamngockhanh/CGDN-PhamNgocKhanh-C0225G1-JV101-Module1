@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><label for="nhapSo">Nhập giá trị</label></div>
+    <div><input type="text" id="nhapSo"></div>
+</div>
+<p id="ketQuaTong"></p>
+<p id="ketQuaTich"></p>
+<input type="button" value="Tính toán" onclick="tinh()">
+</body>
+<script>
+    function tinh() {
+        let nhapSo = parseInt(document.getElementById("nhapSo").value);
+        let sum = 0;
+        let tich = 1;
+        let donVi = 0;
+        do {
+            donVi = nhapSo % 10;
+            nhapSo = parseInt(nhapSo / 10);
+            sum += donVi;
+            tich*=donVi;
+            if (nhapSo < 1) {
+                document.getElementById("ketQuaTong").innerText = (`Tổng là: ${sum}`);
+                document.getElementById("ketQuaTich").innerText = (`Tích là: ${tich}`);
+                break;
+            }
+        } while (true)
+    }
+</script>
+</html>

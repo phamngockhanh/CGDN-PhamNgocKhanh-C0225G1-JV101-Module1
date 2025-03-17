@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label for="gioiHan"></label>
+    <input type="text" id="gioiHan">
+    <p id="ketQua"></p>
+    <input type="button" value="Tính" onclick="tinhToan()">
+</div>
+</body>
+<script>
+    function tinhToan() {
+
+        let gioiHan = document.getElementById("gioiHan").value;
+        let giaiThua =1;
+        for (let i = gioiHan; i > 0; i--) {
+            if(gioiHan%2===0){
+                if(i%2===0){
+                    giaiThua *= i;
+                }
+            }else {
+                if (i % 2 !== 0) {
+                    giaiThua *= i;
+                }
+            }
+        }
+        document.getElementById("ketQua").innerHTML = (`Kết quả của n!! là : ${giaiThua}`);
+
+    }
+</script>
+</html>

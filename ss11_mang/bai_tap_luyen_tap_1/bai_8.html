@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function smallToBig(x, y) {
+        return x - y;
+    }
+
+    let length = +prompt(`Array length is: `);
+    let arr = new Array(length);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = prompt(`At position ${i} has value: `);
+    }
+    // Solution 1
+    for (let i = 0; i < arr.length; i++) {
+        arr.sort(smallToBig);
+        arr.sort((x,y)=>x-y);
+        document.write(`${arr[i]} `);
+    }
+    // for (let i = 0; i< arr.length; i++) {
+    //     for (let j = 1; j < arr.length; j++) {
+    //         if (arr[i] > arr[j]) {
+    //             let temp = arr[i];
+    //             arr[i] = arr[j];
+    //             arr[j] = temp;
+    //         }
+    //     }
+    // }
+</script>
+</html>

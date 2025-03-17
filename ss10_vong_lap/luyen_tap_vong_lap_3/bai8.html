@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h4>Tìm UCLN và BCNN</h4>
+    <div><label for="nhapA">Nhập số thứ nhất: </label></div>
+    <div><input type="text" id="nhapA"></div>
+    <div><label for="nhapB">Nhập số thứ hai: </label></div>
+    <div><input type="text" id="nhapB"></div>
+</div>
+<p id="ucln"></p>
+<p id="bcnn"></p>
+<input type="button" value="Tìm" onclick="tim()">
+</body>
+<script>
+    function tim(){
+        let so1= +document.getElementById("nhapA").value;
+        let so2= +document.getElementById("nhapB").value;
+        let thongBaoUCLN = document.getElementById("ucln");
+        let thongBaoBCNN = document.getElementById("bcnn");
+        let temp1 = so1;
+        let temp2 = so2;
+        do{
+            if(so1===so2){
+                thongBaoUCLN.innerHTML = (`Ước chung lớn nhất là: ${so1}`);
+                thongBaoBCNN.innerHTML = (`Bội chung nhỏ nhất là: ${Math.abs(temp1*temp2)/so1}`);
+                break;
+            } else if(so1>so2){
+                so1=so1-so2;
+            }else {
+                so2= so2-so1;
+            }
+        }while(true)
+    }
+</script>
+</html>

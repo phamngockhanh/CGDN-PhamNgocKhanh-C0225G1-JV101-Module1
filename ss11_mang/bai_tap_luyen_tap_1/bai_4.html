@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let length = +prompt(`Array length: `);
+    let arr = new Array(length);
+    for (let i = 0; i < arr.length; i++) {
+    arr[i] = +prompt(`Value at position ${i} is:  `);
+    }
+    // Solution 1
+    // arr.reverse();
+    // for(let i=0;i<arr.length;i++){
+    //     document.write(`${arr[i]}, `);
+    // }
+
+    // Solution 2
+    let k = arr.length/2;
+    for(let i = 0;i<k;i++){
+        let temp= arr[i];
+        arr[i]= arr[arr.length-1-i];
+        arr[arr.length-1-i] = temp;
+    }
+    for(let i=0;i<arr.length;i++){
+        document.write(`${arr[i]} `);
+    }
+
+</script>
+</html>

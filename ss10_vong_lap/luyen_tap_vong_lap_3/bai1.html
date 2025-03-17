@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="nhapChieuCao">Nhập chiều cao</label>
+<input type="text" id="nhapChieuCao">
+<input type="button" value="In Ra" onclick="inRa()">
+<p id="ketQua"></p>
+</body>
+<script>
+    function inRa() {
+        let chieuCao = document.getElementById("nhapChieuCao").value;
+        for (let i = 1; i <= chieuCao * 2; i++) {
+            for (let j = i; j < chieuCao * 2; j++) {
+                document.getElementById("ketQua").innerHTML += ("&nbsp");
+            }
+            for (let j = 1; j <= i; j++) {
+                if (i % 2 === 0) {
+                    continue;
+                }
+                document.getElementById("ketQua").innerHTML += ("*");
+            }
+                document.getElementById("ketQua").innerHTML += (`<br>`);
+        }
+    }
+</script>
+</html>

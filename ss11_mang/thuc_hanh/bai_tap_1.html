@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div id="display">
+        <div>
+            <label for="maxArray">Input number element: </label>
+        </div>
+        <div>
+            <input type="text" id="maxArray">
+        </div>
+        <div>
+            <input type="button" value="Set" onclick="checkValidate()">
+        </div>
+        <p id="validate"></p>
+    </div>
+    <div id="hidden">
+        <div>
+            <label for="element">Element: </label>
+        </div>
+        <div>
+            <input type="text" id="element">
+        </div>
+        <div>
+            <input type="button" onclick="add()" value="Add" id="addButton">
+        </div>
+        <div>
+            <input type="button" onclick="display()" value="Display" id="displayButton">
+        </div>
+        <p id="result"></p>
+    </div>
+</div>
+</body>
+<script>
+    let arr = Array();
+    let maxArray;
+    let x = 0;
+    let validateNumber;
+    window.onload = function () {
+        document.getElementById("hidden").style.display = "none";
+    };
+
+    function checkValidate() {
+        maxArray = +document.getElementById("maxArray").value;
+        if (maxArray <= 0 || maxArray > 10 || !Number.isInteger(maxArray)) {
+            document.getElementById("maxArray").value = "";
+            document.getElementById("validate").innerHTML = "Please input a valid number";
+            document.getElementById("hidden").style.display = "none";
+        } else {
+            alert(`Array will have ${maxArray} element`);
+            document.getElementById("display").style.display = "none";
+            document.getElementById("hidden").style.display = "";
+        }
+    }
+
+    function add() {
+        validateNumber = +document.getElementById("element").value;
+        if (x < maxArray && Number.isInteger(validateNumber)) {
+            arr[x] = validateNumber;
+            alert(`Add element ${arr[x]} at position ${x} `);
+            x++;
+            document.getElementById("element").value = "";
+            if (x === maxArray) {
+                document.getElementById("element").disabled = true;
+                document.getElementById("addButton").disabled = true;
+            }
+        } else {
+            alert(`Press a valid number`);
+        }
+    }
+
+    function display() {
+        for (let i = 0; i < maxArray; i++) {
+            let e = "<hr/>"
+            e += `Position ${i} have element: ${arr[i]}`;
+            document.getElementById("result").innerHTML += e;
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<p id="ketQua"></p>
+<body>
+<script>
+    let array = [-3, 5, 1, 3, 2, 10, 15];
+    let a, temp, b;
+    let k = array.length;
+    for (let i = 0; i < Math.floor(k/2) ; i++) {
+        temp = array[i];
+        array[i] = array[k - 1 -i ];
+        array[array.length-1-i ] = temp;
+    }
+    for (let i = 0; i < array.length; i++) {
+        document.getElementById("ketQua").innerHTML += (`${array[i]}`);
+    }
+</script>
+</body>
+</html>

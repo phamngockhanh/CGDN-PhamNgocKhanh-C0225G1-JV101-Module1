@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Caro Game Simple</h1>
+<p id="result"></p>
+<div>
+    <label for="colMax">Enter Column</label>
+</div>
+<div>
+    <input type="text" id="colMax">
+</div>
+<div>
+    <label for="rowMax">Enter Row</label>
+</div>
+<div>
+    <input type="text" id="rowMax">
+</div>
+<div>
+    <input type="button" value="Change value" onclick="changeValue()" style="margin-top: 10px">
+    <input type="button" value="Set row and col" onclick="setRowAndCol()" style="margin-top: 10px">
+</div>
+</body>
+<script>
+    function setRowAndCol(){
+        let colMax = document.getElementById("colMax").value;
+        let rowMax = document.getElementById("rowMax").value;
+        for (let i = 0; i < colMax; i++) {
+            for (let j = 0; j < rowMax; j++) {
+                document.getElementById("result").innerHTML += ("0  ");
+            }
+            document.getElementById("result").innerHTML = (`<br>`);
+        }
+    }
+    function changeValue() {
+
+        let col = +prompt("Choose column: ");
+        let row = +prompt("Choose row: ");
+
+    }
+</script>
+</html>

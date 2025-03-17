@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><label for="gioiHan"></label></div>
+<div><input type="text" id="gioiHan"></div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinh()" value="Tính toán">
+</body>
+<script>
+    function tinh() {
+        let gioiHan = +document.getElementById("gioiHan").value;
+        let sum = 0;
+        for (let i = 1; i <= gioiHan; i++) {
+            let giaiThua = 1;
+            for (let j = i; j > 0; j--) {
+                giaiThua *= j;
+                console.log(`Giá trị của giai thừa là :${giaiThua}`);
+            }
+            sum += ((-1) ** i) / giaiThua;
+        }
+        document.getElementById("ketQua").innerHTML = (`Kết quả của chuơng trình S=15-1+1/2-1/3!+...+(-1)^${gioiHan}/${gioiHan}! là: ${15 + sum}`);
+    }
+</script>
+</html>

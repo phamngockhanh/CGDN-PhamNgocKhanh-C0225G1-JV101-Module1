@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><label for="gioiHan"></label></div>
+<div><input type="text" id="gioiHan"></div>
+<p id="ketQua"></p>
+<input type="button" onclick="tinh()" value="Tính toán">
+</body>
+<script>
+    function tinh() {
+        let gioiHan = +document.getElementById("gioiHan").value;
+        let sum = 0;
+        for (let i = 1; i <= (2*gioiHan-1); i++) {
+            let giaiThua = 1;
+            if (i % 2 !== 0) {
+                for (let j = i; j > 0; j--) {
+                    giaiThua *= j;
+                }
+                sum += 1 / giaiThua;
+            }
+        }
+        document.getElementById("ketQua").innerHTML = (`Kết quả của chương trình S= 1 + 1/3! + .... + 1/(2 * ${gioiHan} - 1)! là : ${sum} `);
+    }
+
+</script>
+</html>
