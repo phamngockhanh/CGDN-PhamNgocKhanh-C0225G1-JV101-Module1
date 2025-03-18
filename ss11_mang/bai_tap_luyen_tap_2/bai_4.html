@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = prompt(`Enter string`);
+    // Solution 1
+    let count = 1;
+    let arr = str.split("");
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === " " && arr[i + 1] !== " ") {
+            count++;
+        } else if (arr[i] === " ") {
+            arr.splice(i, 1);
+            i--;
+        }
+    }
+    document.write(`Word in a string: ${count}`);
+
+    // Solution 2
+    // let words = str.trim().split(/\s+/);
+    // document.write(`Word in a string: ${words.length}`);
+</script>
+</html>

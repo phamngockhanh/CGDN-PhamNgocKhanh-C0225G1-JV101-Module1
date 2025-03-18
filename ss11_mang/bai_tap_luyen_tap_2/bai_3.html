@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let length = +prompt("Array length: ");
+    let arr = new Array(length);
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = prompt(`At position ${i} has value: `);
+    }
+    // solution 1
+    for (let i = 0; i < arr.length; i++) {
+        switch (arr[i]) {
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+                count++;
+                break;
+        }
+    }
+    document.write(`The number of numeric characters (0-9) in the array is: ${count}`);
+
+
+    //solution 2
+    arr.forEach(char => {
+        if (char >= "0" && char <= "9") count++;
+    });
+    document.write(`The number of numeric characters (0-9) in the array is: ${count}`);
+</script>
+</html>

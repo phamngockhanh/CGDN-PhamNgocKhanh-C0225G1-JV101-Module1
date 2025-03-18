@@ -25,20 +25,23 @@
 </div>
 </body>
 <script>
-    function setRowAndCol(){
-        let colMax = document.getElementById("colMax").value;
-        let rowMax = document.getElementById("rowMax").value;
+    function setRowAndCol() {
+        let colMax = +document.getElementById("colMax").value;
+        let rowMax = +document.getElementById("rowMax").value;
+        let arr = [];
         for (let i = 0; i < colMax; i++) {
             for (let j = 0; j < rowMax; j++) {
-                document.getElementById("result").innerHTML += ("0  ");
+                arr[i][j] = 0;
+                document.getElementById("result").innerHTML += (`${arr[i][j]}`);
             }
-            document.getElementById("result").innerHTML = (`<br>`);
+            document.getElementById("result").innerHTML += (`<br>`);
         }
     }
+
     function changeValue() {
 
-        let col = +prompt("Choose column: ");
-        let row = +prompt("Choose row: ");
+        // let col = +prompt("Choose column: ");
+        // let row = +prompt("Choose row: ");
 
     }
 </script>

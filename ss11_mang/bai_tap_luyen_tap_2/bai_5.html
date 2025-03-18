@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let strA = prompt("String A : ");
+    let strB = prompt("String B : ");
+    let arrA = strA.split("");
+    let arrB = strB.split("");
+    let count = 0;
+    if (arrA.length !== arrB.length) {
+        document.write("Two string is NOT the same!!!");
+    } else {
+        for (let i = 0; i < arrA.length; i++) {
+            if (arrA[i] !== arrB[i]) {
+                count++;
+            }
+        }
+        if (count === 0) {
+            document.write("Two string is the same!!!");
+        } else {
+            document.write("Two string is NOT the same!!!");
+        }
+    }
+</script>
+</html>
