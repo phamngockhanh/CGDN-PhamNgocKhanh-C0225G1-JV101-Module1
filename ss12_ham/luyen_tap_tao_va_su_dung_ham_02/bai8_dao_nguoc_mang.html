@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let length;
+    do {
+        length = +prompt("Enter length of array");
+        if (!Number.isInteger(length) || parseInt(length) < 0 || length > 10) {
+            alert(`Value must be 0<value<10 and should be an integer`);
+        }
+    } while (!Number.isInteger(length) || parseInt(length) < 0 || parseInt(length) > 10)
+    let arr = new Array(length);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`At position ${i} input value: `);
+    }
+    let arr2 = reverseArray(arr);
+    for (let i = 0; i < arr2.length; i++) {
+        document.write(`${arr2[i]} `);
+    }
+
+    function reverseArray(arr) {
+        let k = arr.length/2;
+        for (let i = 0; i < k; i++) {
+            let temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+        return arr;
+    }
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label for="number">Input number</label>
+    <input type="number" id="number"
+           oninput="square(this.value)"
+    >
+</div>
+<p id="result"></p>
+</body>
+<script>
+    function square(number) {
+        document.getElementById("result").innerHTML = (`Square is: ${number * number}`);
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label for="radius">Radius is: </label>
+    <input type="number" id="radius"
+           oninput="areaAndCircumferenceOfCircle()"
+    >
+</div>
+<p id="result"></p>
+<p id="result2"></p>
+</body>
+<script>
+    function areaAndCircumferenceOfCircle() {
+        const PI = 3.14;
+        let a = +document.getElementById("radius").value;
+        circumferenceOfACircle(a);
+        areaOfACircle(a);
+
+        function circumferenceOfACircle(r) {
+            document.getElementById("result").innerHTML = (`Circumference is: ${2 * PI * r}`);
+        }
+
+        function areaOfACircle(r) {
+            document.getElementById("result2").innerHTML = (`Area is: ${PI * r * r}`);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let num1, num2;
+    do {
+        num1 = +prompt("Enter num1: ");
+        num2 = +prompt("Enter num2: ");
+        if (!Number.isInteger(num1) || !Number.isInteger(num2)) {
+            alert("Enter again!!!");
+        }
+    } while (!Number.isInteger(num1) || !Number.isInteger(num2))
+    alert(`Before change  a= ${num1} b= ${num2}`);
+    let [a, b] = changeValue(num1, num2);
+
+    function changeValue(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
+    }
+    alert(`After change  a= ${a} b= ${b}`);
+// solution 2
+//     function changeValue2(a, b) {
+//         return { a: b, b: a };
+//     }
+//
+//     let result = changeValue2(num1, num2);
+//     console.log(result.a, result.b);
+</script>
+</html>

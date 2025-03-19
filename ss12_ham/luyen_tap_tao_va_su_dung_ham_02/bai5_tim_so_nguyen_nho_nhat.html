@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let length;
+    do {
+        length = +prompt("Length array is: ");
+        if (length < 0 || !Number.isInteger(length) || length > 10) {
+            alert(`0<Number<=10 and number must be an integer`)
+        }
+    } while (length < 1 || !Number.isInteger(length) || length > 10)
+    let arr = new Array(length);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`Element at index ${i} is: `);
+    }
+    let result = minNumber(arr);
+    document.write(`Min number is: ${result}`);
+
+    function minNumber(array) {
+        let min = array[0];
+        for (let i = 0; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+</script>
+</html>
