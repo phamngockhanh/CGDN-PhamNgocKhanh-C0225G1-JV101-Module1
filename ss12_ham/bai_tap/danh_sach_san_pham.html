@@ -10,49 +10,126 @@
             margin-top: 5px;
             width: 25%;
         }
-        .container{
-            justify-content: center;
+
+        .container {
+            display: grid;
+            place-items: center;
         }
+
         #addProduct input:last-child {
             background-color: #4CAF50;
             border-radius: 5px;
             color: white;
+            border: 1px solid;
+            margin-left: 20px;
+            padding: 5px 10px 5px 10px;
+            font-size: 10px;
+        }
+
+        #numberProduct {
+            color: red;
+            margin-left: 15px;
+        }
+
+        .secondContainer {
+            display: flex;
+        }
+
+        #buttonDisplay {
+            margin-left: 20px;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div>
-        <h3><label for="addNewProduct">Add New Product</label></h3>
+        <h4><label for="addNewProduct">Add New Product</label></h4>
     </div>
     <div id="addProduct">
         <input type="text" id="addNewProduct" placeholder="New Product">
         <input type="button" value="Add" onclick="addProduct()">
     </div>
     <div>
-        <h3>Add New Product</h3>
+        <h4>Display all product</h4>
+    </div>
+    <div class="secondContainer">
+        <div>
+            Product Name
+        </div>
+        <div id="numberProduct">
+        </div>
+        <div id="buttonDisplay">
+            <input type="button" value="Display" onclick="displayProduct()">
+        </div>
     </div>
     <div>
-        <h5>Product Name</h5>
+        <p id="display"></p>
     </div>
+
 </div>
 </body>
 <script>
-    let arr=["Sony Xperia","SamsunGalaxy","Nokia 6","Xiaomi Redmi Note 4","Apple iPhone 6S"];
-    function displayProduct() {
+    let arr = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"];
+    document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
 
+    function displayProduct() {
+        document.getElementById("display").innerHTML = "";
+
+        for (let i = 0; i < arr.length; i++) {
+            document.getElementById("display").innerHTML += `
+            <div style="display: flex; justify-content: space-between ; color: #4CAF50; margin-bottom: 10px;">
+                <span>${arr[i]}</span>
+                <div>
+                    <button onclick="editProduct(${i})" style="margin-left: 10px;">Edit</button>
+                    <button onclick="deleteProduct(${i})" style="margin-left: 5px;">Delete</button>
+                </div>
+            </div>`;
+        }
     }
 
     function addProduct() {
+        let newProduct = document.getElementById("addNewProduct").value;
+        if (newProduct === "") {
+            alert("Please input real product!!")
+        } else {
+            let isAdd = window.confirm(`Do you want to add new product?`);
+            if (isAdd) {
+                arr.push(newProduct);
+                alert("Add success!!!!");
+                document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
+                document.getElementById("addNewProduct").value = "";
+                document.getElementById("display").innerHTML = "";
+            }
+        }
 
     }
 
-    function changeProductName() {
-
+    function editProduct(index) {
+        document.getElementById("display").innerHTML = "";
+        for (let i = 0; i < arr.length; i++) {
+            if (index === i) {
+                let temp = prompt(`Edit product`, `${arr[index]}`);
+                let isEdit = window.confirm(`Do you want to edit this product?`);
+                if (isEdit) {
+                    arr.splice(index, 1);
+                    arr.splice(index, 0, `${temp}`);
+                    document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
+                }
+            }
+        }
     }
 
-    function deleteProduct() {
-
+    function deleteProduct(index) {
+        document.getElementById("display").innerHTML = "";
+        for (let i = 0; i < arr.length; i++) {
+            if (index === i) {
+                let isDelete = window.confirm(`Do you want to delete this product?`);
+                if (isDelete) {
+                    arr.splice(index, 1);
+                    document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
+                }
+            }
+        }
     }
 </script>
 </html>
