@@ -9,11 +9,15 @@
 </body>
 <script>
     function isInArray(str, char) {
+        let count = 0;
         for (let i = 0; i < str.length; i++) {
             let temp = str.slice(i, i + 1);
             if (char === temp) {
-                return 1;
+                count++;
             }
+        }
+        if (count > 0) {
+            return count;
         }
         return -1;
     }
@@ -21,10 +25,10 @@
     let str1 = prompt("Enter string:");
     let char = prompt("Enter a character:");
     let result = isInArray(str1, char);
-    if (result === 1) {
-        alert(`"${char}" character have in string`);
+    if (result === -1) {
+        alert(`"${char}" character haven't in string`);
     } else {
-        alert(`"${char}" character haven't in string`)
+        alert(`"${char}" display ${result} times in string`);
     }
 
 </script>
