@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = prompt("Nhập chuỗi ngẫu nhiên");
+    let arr = str.split("");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === " " && arr[i + 1] === " ") {
+            arr.splice(i, 1);
+            i--;
+        }
+    }
+    let k = "";
+    for (let i = 0; i < arr.length; i++) {
+        k += arr[i];
+    }
+    arr = k.split(" ");
+    let checked = [];
+    for (let i = 0; i < arr.length; i++) {
+        let num = arr[i];
+        let isChecked = false;
+        for (let j = 0; j < checked.length; j++) {
+            if (num === checked[j]) {
+                isChecked = true;
+                break;
+            }
+        }
+        if (!isChecked) {
+            let count = 0;
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    count++;
+                }
+            }
+            document.write(`${arr[i]}:${count}<br>`);
+            checked.push(`${arr[i]}`);
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label for="number1">Input num1:</label>
+    <input type="number" id="number1">
+</div>
+<div>
+    <label for="number2">Input num2:</label>
+    <input type="number" id="number2">
+</div>
+<input type="button" onclick="check2Number()" value="Check 2 number">
+<p id="ketQua"></p>
+</body>
+<script>
+    function check2Number() {
+        let num1 = +document.getElementById("number1").value;
+        let num2 = +document.getElementById("number2").value;
+        if(checkNumber(num1,num2)===-1){
+            alert("num1 < num2");
+        }else{
+            alert(`${checkNumber(num1,num2)}`);
+        }
+        function checkNumber(num1, num2) {
+            if (num1 < num2) {
+                return -1;
+            } else {
+                return num1 + num2;
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let numberString;
+    do {
+        numberString = +prompt(`Enter number string: `);
+        if (numberString < 1000 || numberString > 9999 || !Number.isInteger(numberString)) {
+            alert("Enter again");
+        }
+    } while (numberString < 1000 || numberString > 9999 || !Number.isInteger(numberString));
+    let arrNumber = numberString.toString();
+    let max = -1;
+    for (let i = 0; i < 4; i++) {
+        let newNumber = parseInt(arrNumber.slice(0, i) + arrNumber.slice(i + 1));
+        if (max < newNumber) {
+            max = newNumber;
+        }
+    }
+    document.write(`Số lớn nhất là: ${max}`);
+</script>
+</html>

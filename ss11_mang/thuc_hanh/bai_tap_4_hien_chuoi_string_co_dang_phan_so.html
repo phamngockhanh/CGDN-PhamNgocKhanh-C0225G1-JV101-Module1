@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = prompt("Nhập chuỗi");
+    let arr = str.split("");
+    let a = "";
+    let b = "";
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "/") {
+            arr.splice(i, 1);
+            b = a;
+            a = "";
+            //document.write(`${b}`);
+        }
+        a += arr[i];
+    }
+    //document.write(`${a}`);
+    let flag;
+    if (b === "" || a === "") {
+        flag = true;
+    }
+    for (let i = 0; i < b.length; i++) {
+        if (!Number.isInteger(parseInt(b[i])) || b[i] === "") {
+            flag = true;
+        }
+    }
+    for (let i = 0; i < a.length; i++) {
+        if (!Number.isInteger(parseInt(a[i])) || parseInt(a) === 0) {
+            flag = true;
+        }
+    }
+    let ucln = 0;
+    if (flag) {
+        alert("Không phải là phân số");
+    } else {
+        a = parseInt(a);
+        b = parseInt(b);
+        if (b % a === 0) {
+            alert(`${b / a}`);
+        } else {
+            let a1 = a;
+            let b1 = b;
+            do {
+                if (a === b) {
+                    ucln = a;
+                    alert(`${b1 / ucln}/${a1 / ucln}`);
+                    break;
+                } else if (a > b) {
+                    a = a - b;
+                } else {
+                    b = b - a;
+                }
+            } while (true)
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <label for="starName">Star Name</label>
+    <input type="text" id="starName"
+           oninput="printConstellation(this.value)"
+           onchange="printConstellation(this.value)"
+    >
+</div>
+<p id="result"></p>
+</body>
+<script>
+    // let starName = prompt("Enter star name: ");
+    // printConstellation(starName);
+    function printConstellation(starName) {
+        let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellation = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        let flag;
+        for (let i = 0; i < star.length; i++) {
+            if (starName === star[i]) {
+                document.getElementById("result").innerHTML = (`Constellation is: ${constellation[i]}`);
+                flag = true;
+            }
+        }
+        if (!flag) {
+            document.getElementById("result").innerHTML = (`No result. Please input again`);
+        }
+
+    }
+</script>
+</html>
