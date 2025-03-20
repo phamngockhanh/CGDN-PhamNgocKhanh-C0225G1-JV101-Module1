@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arrLength;
+    do {
+        arrLength = +prompt(`Enter array length: `);
+        if (arrLength < 0 || arrLength > 10 || !Number.isInteger(arrLength) || arrLength === "") {
+            alert("Enter again!!");
+        }
+    } while (arrLength < 0 || arrLength > 10 || !Number.isInteger(arrLength) || arrLength === "")
+    let arr = new Array(arrLength);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`At position ${i} have value:`);
+    }
+    if (checkPrimeArray(arr)) {
+        alert("Is prime array");
+    } else {
+        alert("Isn't prime array");
+    }
+
+    function checkPrime(number) {
+        if (number < 2) {
+            return false;
+        }
+        for (let i = 2; i < Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkPrimeArray(arr) {
+        let primeCount = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (checkPrime(arr[i])) {
+                primeCount++;
+            }
+        }
+        if (primeCount === arr.length) {
+            return true;
+        }
+        return false;
+    }
+</script>
+</html>

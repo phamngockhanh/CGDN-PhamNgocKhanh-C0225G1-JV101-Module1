@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let danhSachSinhVien = ["Đông", "Bình", "Chung"];
+
+    function layDanhSachSinhVien() {
+        let danhSach = "";
+        for (let i = 0; i < danhSachSinhVien.length; i++) {
+            danhSach += (`${i + 1}.${danhSachSinhVien[i]}\n`);
+        }
+        return danhSach;
+    }
+
+    function hienThiDanhSach() {
+        let danhSach = layDanhSachSinhVien();
+        alert("----------------------Đây là danh sách sinh viên------------------------\n" +
+            `${danhSach}`);
+    }
+
+    function themMoi() {
+        let themMoi = prompt(`Nhập tên mà bạn muốn thêm:`);
+        danhSachSinhVien.push(themMoi);
+    }
+
+    function xoaSinhVien() {
+        let danhSach = layDanhSachSinhVien();
+        let viTri = +prompt(`${danhSach} \n Vị trí mà bạn muốn xóa?`);
+        for (let i = 0; i <= danhSachSinhVien.length; i++) {
+            if (viTri === i) {
+                let isDelete = window.confirm(`Bạn có muốn xóa không?`);
+                if (isDelete) {
+                    danhSachSinhVien.splice(viTri - 1, 1);
+                }
+            }
+        }
+    }
+
+    function chinhSuaSinhVien() {
+        let danhSach = layDanhSachSinhVien();
+        let viTri = +prompt(`${danhSach} \n Vị trí mà bạn muốn chỉnh sửa?`);
+        let tenNguoiChinhSua = prompt(`Tên người chỉnh sửa`, `${danhSachSinhVien[viTri - 1]}`);
+        for (let i = 0; i < danhSachSinhVien.length; i++) {
+            if (viTri === i) {
+                let isEdit = window.confirm(`Bạn có muốn chỉnh sửa không không?`);
+                if (isEdit) {
+                    danhSachSinhVien.splice(viTri - 1, 1);
+                    danhSachSinhVien.splice(viTri - 1, 0, `${tenNguoiChinhSua}`);
+                }
+            }
+        }
+    }
+
+    do {
+        danhSach = +prompt(
+            "----------------------Hiển thị danh sách sinh viên------------------------\n" +
+            "Hãy nhập số để chọn hành động \n" +
+            "1. Hiển thị danh sách \n" +
+            "2. Thêm mới danh sách \n" +
+            "3. Chỉnh sửa sinh viên \n" +
+            "4. Xóa sinh viên \n" +
+            "5. Thoát chương trình \n"
+        );
+        switch (danhSach) {
+            case 1:
+                hienThiDanhSach();
+                break;
+            case 2:
+                themMoi();
+                break;
+            case 3:
+                chinhSuaSinhVien();
+                break;
+            case 4:
+                xoaSinhVien();
+                break;
+            case 5:
+                break;
+            default:
+                alert("Vui lòng nhập lại");
+                break;
+        }
+        if (danhSach === 5) {
+            let a = window.confirm("Bạn có muốn thoát chương trình không?");
+            if (a === true) {
+                break;
+            }
+        }
+    } while (true);
+</script>
+</body>
+</html>

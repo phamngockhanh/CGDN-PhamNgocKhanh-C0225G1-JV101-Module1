@@ -23,7 +23,13 @@
     }
 
     let str1 = prompt("Enter string:");
-    let char = prompt("Enter a character:");
+    let char;
+    do {
+        char = prompt("Enter a character:");
+        if (char.length > 1) {
+            alert("Please input a character!!");
+        }
+    } while (char.length > 1);
     let result = isInArray(str1, char);
     if (result === -1) {
         alert(`"${char}" character haven't in string`);

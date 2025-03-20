@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arrLength;
+    do {
+        arrLength = +prompt(`Array length: `);
+        if (arrLength < 0 || !Number.isInteger(arrLength) || arrLength > 10 || arrLength === "") {
+            alert("Enter again!!");
+        }
+    } while (arrLength < 0 || !Number.isInteger(arrLength) || arrLength > 10 || arrLength === "")
+    let arr = new Array(arrLength);
+    for (let i = 0; i < arr.length; i++) {
+        let checkCharacter = 3;
+        do {
+            arr[i] = prompt(`At position ${i} have character: `);
+            checkCharacter = arr[i];
+            if (checkCharacter.length >= 2) {
+                alert("Please input a character!!!");
+            }
+        } while (checkCharacter.length >= 2)
+    }
+
+    let result = checkCharacterArray(arr);
+    if (result === 1) {
+        alert("Is number array");
+    } else if (result === 0) {
+        alert("Is character array");
+    } else {
+        alert("Array combine number and character");
+    }
+
+    function checkCharacterArray(arr) {
+        let countNumber = 0;
+        let countCharacter = 0;
+        let arrLength = arr.length;
+        for (let i = 0; i < arr.length; i++) {
+            if (Number.isInteger(parseInt(arr[i]))) {
+                countNumber++;
+            } else {
+                countCharacter++;
+            }
+        }
+        if (countNumber === arrLength) {
+            return 1;
+        } else if (countCharacter === arrLength) {
+            return 0;
+        }
+        return -1;
+    }
+</script>
+</html>

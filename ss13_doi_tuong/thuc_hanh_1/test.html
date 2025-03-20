@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let person = {
+        name: {first: 'Bob', last: 'Smith'},
+        age: 32,
+        interests: ['music', 'skiing'],
+        greeting: function () {
+            alert('Hi! I\'m ' + this.name.first + '.');
+        }
+    }
+    console.log(person.name.first);
+    console.log(person.age);
+    console.log("Sử dụng dấu ngoặc vuông ([])");
+    console.log(person['name']['first']);
+    console.log(person['age']);
+    person.greeting();
+</script>
+</html>

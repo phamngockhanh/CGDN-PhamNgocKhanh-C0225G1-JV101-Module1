@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function graphOfAFunction(arrX, arrY) {
+        let count = 0;
+        if (arrX.length !== arrY.length) {
+            return false;
+        }
+        for (let i = 0; i < arrX.length; i++) {
+            if (2 * arrX[i] + 1 === arrY[i]) {
+                count++;
+            }
+        }
+        if (count === arrX.length) {
+            return true;
+        }
+        return false;
+    }
+
+    let lengthX;
+    do {
+        lengthX = +prompt(`Enter length of array X`);
+        if (lengthX < 0 || lengthX > 10 || lengthX === "" || !Number.isInteger(lengthX)) {
+            alert("Please enter an integer number");
+        }
+    } while (lengthX < 0 || lengthX > 10 || lengthX === "" || !Number.isInteger(lengthX));
+    let lengthY;
+    do {
+        lengthY = +prompt(`Enter length of array Y`);
+        if (lengthY < 0 || lengthY > 10 || lengthY === "" || !Number.isInteger(lengthY)) {
+            alert("Please enter an integer number");
+        }
+    } while (lengthY < 0 || lengthY > 10 || lengthY === "" || !Number.isInteger(lengthY));
+    let arrX = new Array(lengthX);
+    let arrY = new Array(lengthY);
+    for (let i = 0; i < arrX.length; i++) {
+        arrX[i] = +prompt(`At position ${i} have value: `);
+    }
+    for (let i = 0; i < arrY.length; i++) {
+        arrY[i] = +prompt(`At position ${i} have value: `);
+    }
+    let result = graphOfAFunction(arrX, arrY);
+    if (result) {
+        alert("Valid");
+    } else {
+        alert("Invalid");
+    }
+</script>
+</html>
