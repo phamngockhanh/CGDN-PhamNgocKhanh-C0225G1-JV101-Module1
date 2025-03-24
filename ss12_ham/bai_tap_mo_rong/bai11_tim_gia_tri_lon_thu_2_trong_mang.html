@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let intArrayLength;
+    do {
+        intArrayLength = +prompt("Enter integer array: ");
+        if (intArrayLength < 0 || intArrayLength > 10 || !Number.isInteger(intArrayLength)) {
+            alert("Enter positive integer number!!!");
+        }
+    } while (intArrayLength < 0 || intArrayLength > 10 || !Number.isInteger(intArrayLength))
+    let intArray = new Array(intArrayLength);
+    for (let i = 0; i < intArray.length; i++) {
+        do {
+            intArray[i] = +prompt(`At position ${i} have value: `);
+            if (!Number.isInteger(intArray[i]) || intArray < 0) {
+                alert("Enter valid number");
+            }
+        } while (!Number.isInteger(intArray[i]))
+    }
+    let [a, b] = findSecondLargestNumber(intArray);
+    alert(`Second largest number: ${a}\n
+    Number second largest number: ${b}`);
+
+    function findSecondLargestNumber(integerArray) {
+        let max = 0;
+        for (let i = 0; i < integerArray.length; i++) {
+            if (integerArray[i] > max) {
+                max = integerArray[i];
+            }
+        }
+        for (let i = 0; i < integerArray.length; i++) {
+            if (max === integerArray[i]) {
+                integerArray.splice(i, 1);
+                i--;
+            }
+        }
+        max = 0;
+        for (let i = 0; i < integerArray.length; i++) {
+            if (max < integerArray[i]) {
+                max = integerArray[i];
+            }
+        }
+        let count = 0;
+        for (let i = 0; i < integerArray.length; i++) {
+            if (max === integerArray[i]) {
+                count++;
+            }
+        }
+
+        return [max, count];
+    }
+
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let count = 1;
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 5; j > 0; j--) {
+            if (count === j) {
+                document.write(`${j}  `);
+            } else {
+                document.write(`&nbsp&nbsp`);
+            }
+        }
+        for (let j = 1; j <= 5; j++) {
+            if (count === j) {
+                document.write(`${j} `);
+            } else {
+                document.write(`&nbsp&nbsp`);
+            }
+        }
+        count++;
+        document.write(`<br>`);
+    }
+    let count2=4;
+    for (let i = 1; i < 5; i++) {
+        for (let j = 5; j > 0; j--) {
+            if (count2 === j) {
+                document.write(`${j}  `);
+            } else {
+                document.write(`&nbsp&nbsp`);
+            }
+        }
+        for (let j = 1; j <= 5; j++) {
+            if (count2 === j) {
+                document.write(`${j}  `);
+            } else {
+                document.write(`&nbsp&nbsp`);
+            }
+        }
+        count2--;
+        document.write(`<br>`);
+    }
+</script>
+</html>

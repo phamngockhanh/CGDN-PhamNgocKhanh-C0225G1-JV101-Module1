@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let s1 = prompt("Enter s1: ");
+    let s2 = prompt("Enter s2: ");
+    let arr1 = s1.split("");
+    let arr2 = s2.split("");
+    let result = commonCharacterCount(arr1, arr2);
+    alert(`${result}`);
+
+    function commonCharacterCount(s1, s2) {
+        let arrDup1 = [];
+        let arrDup2 = [];
+        for (let i = 0; i < s1.length; i++) {
+            let flag;
+            for (let j = 0; j < arrDup1.length; j++) {
+                if (s1[i] === arrDup1[j]) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                arrDup1.push(s1[i]);
+            }
+        }
+        for (let i = 0; i < s2.length; i++) {
+            let flag;
+            for (let j = 0; j < arrDup2.length; j++) {
+                if (s2[i] === arrDup2[j]) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                arrDup2.push(s2[i]);
+            }
+        }
+        let arrDup3 = [];
+        let arrDup4 = [];
+        for (let i = 0; i < arrDup1.length; i++) {
+            for (let j = 0; j < s2.length; j++) {
+                if (arrDup1[i] === s2[j]) {
+                    arrDup3.push(arrDup1[i]);
+                }
+            }
+        }
+        for (let i = 0; i < arrDup2.length; i++) {
+            for (let j = 0; j < s1.length; j++) {
+                if (arrDup2[i] === s1[j]) {
+                    arrDup4.push(arrDup2[i]);
+                }
+            }
+        }
+        let arrDupCombine = arrDup3.concat(arrDup4);
+        let arrDup5 = [];
+        for (let i = 0; i < arrDupCombine.length; i++) {
+            let flag;
+            for (let j = 0; j < arrDup5.length; j++) {
+                if (arrDupCombine[i] === arrDup5[j]) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                arrDup5.push(arrDupCombine[i]);
+            }
+        }
+        let count1 = 0;
+        let count2 = 0;
+        let commenKey = 0;
+        let commenKeyword = [];
+        if (arrDup3.length < arrDup4.length) {
+            for (let i = 0; i < arrDup5.length; i++) {
+                for (let j = 0; j < arrDup4.length; j++) {
+                    if (arrDup5[i] === arrDup3[j]) {
+                        count1++;
+                    }
+                    if (arrDup5[i] === arrDup4[j]) {
+                        count2++;
+                    }
+
+                }
+                if (count1 < count2) {
+                    commenKey += count1;
+                    for(let k =0;k<count1;k++){
+                        commenKeyword.push(arrDup5[i]);
+                    }
+                    count1 = 0;
+                    count2 = 0;
+                } else {
+                    commenKey += count2;
+                    for(let k =0;k<count2;k++){
+                        commenKeyword.push(arrDup5[i]);
+                    }
+                    count1 = 0;
+                    count2 = 0;
+                }
+            }
+        } else {
+            for (let i = 0; i < arrDup5.length; i++) {
+                for (let j = 0; j < arrDup3.length; j++) {
+                    if (arrDup5[i] === arrDup3[j]) {
+                        count1++;
+                    }
+                    if (arrDup5[i] === arrDup4[j]) {
+                        count2++;
+                    }
+
+                }
+                if (count1 < count2) {
+                    commenKey += count1;
+                    for(let k =0;k<count1;k++){
+                        commenKeyword.push(arrDup5[i]);
+                    }
+                    count1 = 0;
+                    count2 = 0;
+                } else {
+                    commenKey += count2;
+                    for(let k =0;k<count2;k++){
+                        commenKeyword.push(arrDup5[i]);
+                    }
+                    count2 = 0;
+                    count1 = 0;
+                }
+            }
+        }
+        return commenKey;
+    }
+</script>
+</html>

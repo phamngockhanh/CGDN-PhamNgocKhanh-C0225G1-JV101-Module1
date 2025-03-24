@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let a = 10;
+    let k = "";
+    do {
+        if (a % 2 === 0) {
+            k += "1";
+        } else {
+            k += "0";
+        }
+        a = parseInt(a / 2);
+        if (a < 1) {
+            alert(`${k}`);
+            break;
+        }
+    } while (true)
+
+
+</script>
+</html>

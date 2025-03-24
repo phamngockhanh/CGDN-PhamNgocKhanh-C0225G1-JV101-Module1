@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            if (celsius < -273) {
+                return false;
+            } else {
+                this.celsius = celsius;
+                return true;
+            }
+        }
+
+        setCelsius(celsius) {
+            if (celsius < -273) {
+                return false;
+            } else {
+                this.celsius = celsius;
+                return true;
+            }
+        }
+
+        getCelsius() {
+            return this.celsius;
+        }
+
+        celsiusToFahrenheit() {
+            return this.celsius * 9 / 5 + 32;
+        }
+
+        celsiusToKelvin() {
+            return this.celsius + 273.15;
+        }
+    }
+
+    let Temperature1 = new Temperature(25);
+    let celsius, checkValid = true;
+    do {
+        celsius = +prompt("Enter celsius: ");
+        checkValid = Temperature1.setCelsius(celsius);
+        if (!checkValid) {
+            alert("Please enter an integer value and value > -273");
+        }
+    } while (!checkValid);
+    alert(`Fahrenheit: ${Temperature1.celsiusToFahrenheit()}`);
+    alert(`Kelvin: ${Temperature1.celsiusToKelvin()}`);
+</script>
+</html>

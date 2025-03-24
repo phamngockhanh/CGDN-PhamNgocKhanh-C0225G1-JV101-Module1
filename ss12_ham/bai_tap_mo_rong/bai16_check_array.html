@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<!--Viết 1 hàm truyền vào 1 tham số (với tham số là một mảng 1 chiều), (checkArrray(arr))
+"Thực hiện kiểm tra.
+"
++Nếu từng phần tử ở vị trí 1/2 mảng  sau có giá trị bằng bình phương từng phần tử đầu thì trả về "true",
+"
++ Nếu bất kỳ vị trí nào không đúng điều kiện thì trả  về ""false"""
++ Nếu mảng có số phần tử lẻ => false
+"+ Ví dụ  checkArray(1,2,3,1,4,9]) => true = (vì 1*1=1 và 2*2=4 và 3*3=9)
+              "
+	checkArray([2,1,3,1,1,9]) => false = (vì 2*2=4  khác 1 => sai)
+-->
+</body>
+<script>
+    function checkArray(arr) {
+        if(arr.length%2===1){
+            return false;
+        }
+        let k = arr.length/2
+        for(let i=0;i<k;i++){
+            if(arr[i]**2===Math.pow(arr[k+i],2)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    let length = +prompt("Enter array length: ");
+    let arr = new Array(length);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`At position ${i} have value: `);
+    }
+    let result = checkArray(arr);
+    if(result){
+        alert(`True`);
+    }else{
+        alert(`False`);
+    }
+</script>
+</html>

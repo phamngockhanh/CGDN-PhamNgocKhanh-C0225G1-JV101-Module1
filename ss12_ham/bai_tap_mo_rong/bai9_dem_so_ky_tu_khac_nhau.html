@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str1 = prompt("Enter string: ");
+    let arr = str1.split("");
+    let result = checkDuplicatedCharater(arr);
+    alert(`Duplicated word: ${result.length}`)
+    function checkDuplicatedCharater(array) {
+        let arrDuplicated = [];
+        for (let i = 0; i < array.length; i++) {
+            let flag;
+            for (let j = 0; j < arrDuplicated.length; j++) {
+                if (array[i] === arrDuplicated[j]) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                arrDuplicated.push(array[i]);
+            }
+        }
+        return arrDuplicated;
+    }
+</script>
+</html>

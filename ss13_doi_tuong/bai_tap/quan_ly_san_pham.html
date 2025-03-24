@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #addProduct {
+            background-color: #e4edf1;
+            padding: 15px;
+            margin-top: 5px;
+            width: 25%;
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+        }
+
+        #addProduct input:last-child {
+            background-color: #4CAF50;
+            border-radius: 5px;
+            color: white;
+            border: 1px solid;
+            margin-left: 20px;
+            padding: 5px 10px 5px 10px;
+            font-size: 10px;
+        }
+
+        #numberProduct {
+            color: red;
+            margin-left: 15px;
+        }
+
+        .secondContainer {
+            display: flex;
+        }
+
+        #buttonDisplay {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h4><label for="addNewProduct">Add New Product</label></h4>
+    </div>
+    <div id="addProduct">
+        <input type="text" id="addNewProduct" placeholder="New Product">
+        <input type="button" value="Add" onclick="manager.addProduct()">
+    </div>
+    <div>
+        <h4>Display all product</h4>
+    </div>
+    <div class="secondContainer">
+        <div>
+            Product Name
+        </div>
+        <div id="numberProduct">
+        </div>
+        <div id="buttonDisplay">
+            <input type="button" value="Display" onclick="manager.displayProduct()">
+        </div>
+    </div>
+    <div>
+        <p id="display"></p>
+    </div>
+
+</div>
+</body>
+<script>
+    class ProductManager {
+        constructor() {
+            this.products = ["Sam sung galaxy"];
+        }
+
+        displayProduct() {
+            document.getElementById("display").innerHTML = "";
+
+            for (let i = 0; i < this.products.length; i++) {
+                document.getElementById("display").innerHTML += `
+            <div style="display: flex; justify-content: space-between ; color: #4CAF50; margin-bottom: 10px;">
+                <span>${this.products[i]}</span>
+                <div>
+                    <button onclick="manager.editProduct(${i})" style="margin-left: 10px;">Edit</button>
+                    <button onclick="manager.deleteProduct(${i})" style="margin-left: 5px;">Delete</button>
+                </div>
+            </div>`;
+            }
+        }
+
+        addProduct() {
+            let newProduct = document.getElementById("addNewProduct").value;
+            if (newProduct === "") {
+                alert("Please input real product!!")
+            } else {
+                let isAdd = window.confirm(`Do you want to add new product?`);
+                if (isAdd) {
+                    this.products.push(newProduct);
+                    alert("Add success!!!!");
+                    document.getElementById("numberProduct").innerHTML = (`${this.products.length} products`);
+                    document.getElementById("addNewProduct").value = "";
+                    document.getElementById("display").innerHTML = "";
+                }
+            }
+        }
+
+        editProduct(index) {
+            document.getElementById("display").innerHTML = "";
+            for (let i = 0; i < this.products.length; i++) {
+                if (index === i) {
+                    let temp = prompt(`Edit product`, `${this.products[index]}`);
+                    let isEdit = window.confirm(`Do you want to edit this product?`);
+                    if (isEdit) {
+                        this.products.splice(index, 1);
+                        this.products.splice(index, 0, `${temp}`);
+                        document.getElementById("numberProduct").innerHTML = (`${this.products.length} products`);
+                    }
+                }
+            }
+        }
+
+        deleteProduct(index) {
+            document.getElementById("display").innerHTML = "";
+            for (let i = 0; i < this.products.length; i++) {
+                if (index === i) {
+                    let isDelete = window.confirm(`Do you want to delete this product?`);
+                    if (isDelete) {
+                        this.products.splice(index, 1);
+                        document.getElementById("numberProduct").innerHTML = (`${this.products.length} products`);
+                    }
+                }
+            }
+        }
+    }
+
+    let manager = new ProductManager();
+
+</script>
+</html>
