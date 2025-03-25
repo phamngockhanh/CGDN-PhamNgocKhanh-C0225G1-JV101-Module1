@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class SwitchButton {
+        constructor() {
+            this.status = false;
+            this.lamp = null;
+        }
+
+
+        connectToLamp(electricLamp) {
+            this.lamp = electricLamp;
+        }
+
+        switchOff() {
+            this.status = !this.status;
+            if (this.status) {
+                document.write("Nút đang tắt!!<br>");
+            } else {
+                document.write("Nút đang bật!!<br>");
+            }
+            this.lamp.turnOff();
+        }
+
+        switchOn() {
+            this.status = !this.status;
+            if (this.status) {
+                document.write("Nút đang bật!!<br>");
+            } else {
+                document.write("Nút đang tắt!!<br>");
+            }
+            this.lamp.turnOn();
+        }
+    }
+
+    class ElectricLamp {
+        constructor() {
+            this.status = false;
+        }
+
+
+        turnOff() {
+            this.status = !this.status;
+            if (this.status) {
+                document.write("Đèn bật!!<br>");
+            } else {
+                document.write("Đèn tắt!!<br>");
+            }
+        }
+
+        turnOn() {
+            this.status = !this.status;
+            if (this.status) {
+                document.write("Đèn bật!!<br>");
+            } else {
+                document.write("Đèn tắt!!<br>");
+            }
+
+        }
+
+    }
+
+    let SwitchButton1 = new SwitchButton();
+    let ElectricLamp2 = new ElectricLamp();
+
+    for (let i = 0; i < 10; i++) {
+        document.write(`Thao tác ${i + 1}<br>`);
+        SwitchButton1.connectToLamp(ElectricLamp2);
+        SwitchButton1.switchOn();
+        SwitchButton1.switchOff();
+    }
+
+
+</script>
+</html>

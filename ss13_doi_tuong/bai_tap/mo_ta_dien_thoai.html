@@ -8,9 +8,70 @@
 
 </body>
 <script>
-  class Phone{
-    constructor(phoneName,battery) {
+    class Phone {
+        constructor(isTyping) {
+            this.status = false;
+            this.battery = 100;
+            this.isTyping = "";
+            this.sendedMessage = [];
+            this.receivedMessage = [];
+        }
+
+
+        phoneCharge() {
+            if (this.battery < 10) {
+                this.battery = 100;
+            } else {
+                document.write("Your phone no need to charge !!!<br>");
+            }
+        }
+
+        phoneCheck() {
+            if (this.status) {
+                document.write("Your phone is turning on!!<br>");
+            } else {
+                document.write("Your phone is turning off!!<br>");
+            }
+        }
+
+        phoneOnAndOff() {
+            this.status = !this.status;
+        }
+
+
+
+        sendToAnotherPhone(phone, text) {
+            this.isTyping(text);
+            this.sendedMessage.push(text);
+            phone.receivedMessage.push(text);
+        }
+
+        receivedMessageText(text) {
+            this.receivedMessage.push(text);
+        }
+
+        seeMessageSend() {
+            for (let i = 0; i < this.sendedMessage.length; i++) {
+                document.write(`${this.sendedMessage[i]}<br>`);
+            }
+        }
+
+        seeMessageReceive() {
+            for (let i = 0; i < this.receivedMessage.length; i++) {
+                document.write(`${this.receivedMessage[i]}<br>`);
+            }
+        }
+
     }
-  }
+
+    let Nokia  = new Phone();
+    let Oppo  = new Phone();
+    Nokia.phoneCharge();
+    Nokia.phoneOnAndOff();
+    Nokia.phoneCheck();
+    Nokia.sendToAnotherPhone(Oppo,"Hello");
+    Nokia.seeMessageSend();
+
+
 </script>
 </html>

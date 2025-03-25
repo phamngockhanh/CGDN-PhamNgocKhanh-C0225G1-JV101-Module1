@@ -47,7 +47,7 @@
     </div>
     <div id="addProduct">
         <input type="text" id="addNewProduct" placeholder="New Product">
-        <input type="button" value="Add" onclick="manager.addProduct()">
+        <input type="button" value="Add" onclick="addProduct()">
     </div>
     <div>
         <h4>Display all product</h4>
@@ -59,7 +59,7 @@
         <div id="numberProduct">
         </div>
         <div id="buttonDisplay">
-            <input type="button" value="Display" onclick="manager.displayProduct()">
+            <input type="button" value="Display" onclick="displayProduct()">
         </div>
     </div>
     <div>
@@ -69,72 +69,79 @@
 </div>
 </body>
 <script>
-    class ProductManager {
-        constructor() {
-            this.products = ["Sam sung galaxy"];
+    class Product {
+        constructor(name) {
+            this.name = name;
         }
+    }
 
-        displayProduct() {
-            document.getElementById("display").innerHTML = "";
+    let Product1 = new Product("Samsung galaxy3");
+    let Product2 = new Product("Iphone XSmax");
+    let Product3 = new Product("Iphone 13 promax");
 
-            for (let i = 0; i < this.products.length; i++) {
-                document.getElementById("display").innerHTML += `
+    let arr = [Product1, Product2, Product3];
+
+    document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
+
+    function displayProduct() {
+        document.getElementById("display").innerHTML = "";
+
+        for (let i = 0; i < arr.length; i++) {
+            document.getElementById("display").innerHTML += `
             <div style="display: flex; justify-content: space-between ; color: #4CAF50; margin-bottom: 10px;">
-                <span>${this.products[i]}</span>
+                <span>${arr[i].name}</span>
                 <div>
-                    <button onclick="manager.editProduct(${i})" style="margin-left: 10px;">Edit</button>
-                    <button onclick="manager.deleteProduct(${i})" style="margin-left: 5px;">Delete</button>
+                    <button onclick="editProduct(${i})" style="margin-left: 10px;">Edit</button>
+                    <button onclick="deleteProduct(${i})" style="margin-left: 5px;">Delete</button>
                 </div>
             </div>`;
-            }
         }
+    }
 
-        addProduct() {
-            let newProduct = document.getElementById("addNewProduct").value;
-            if (newProduct === "") {
-                alert("Please input real product!!")
-            } else {
-                let isAdd = window.confirm(`Do you want to add new product?`);
-                if (isAdd) {
-                    this.products.push(newProduct);
-                    alert("Add success!!!!");
-                    document.getElementById("numberProduct").innerHTML = (`${this.products.length} products`);
-                    document.getElementById("addNewProduct").value = "";
-                    document.getElementById("display").innerHTML = "";
-                }
-            }
-        }
+    function addProduct() {
+        let nameNewProduct = document.getElementById("addNewProduct").value;
+        let newProduct = new Product(nameNewProduct);
+        if (nameNewProduct === "") {
+            alert("Please input real product!!")
+        } else {
+            let isAdd = window.confirm(`Do you want to add new product?`);
+            if (isAdd) {
+                arr.push(newProduct);
 
-        editProduct(index) {
-            document.getElementById("display").innerHTML = "";
-            for (let i = 0; i < this.products.length; i++) {
-                if (index === i) {
-                    let temp = prompt(`Edit product`, `${this.products[index]}`);
-                    let isEdit = window.confirm(`Do you want to edit this product?`);
-                    if (isEdit) {
-                        this.products.splice(index, 1);
-                        this.products.splice(index, 0, `${temp}`);
-                        document.getElementById("numberProduct").innerHTML = (`${this.products.length} products`);
-                    }
-                }
-            }
-        }
-
-        deleteProduct(index) {
-            document.getElementById("display").innerHTML = "";
-            for (let i = 0; i < this.products.length; i++) {
-                if (index === i) {
-                    let isDelete = window.confirm(`Do you want to delete this product?`);
-                    if (isDelete) {
-                        this.products.splice(index, 1);
-                        document.getElementById("numberProduct").innerHTML = (`${this.products.length} products`);
-                    }
-                }
+                alert("Add success!!!!");
+                document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
+                document.getElementById("addNewProduct").value = "";
+                document.getElementById("display").innerHTML = "";
             }
         }
     }
 
-    let manager = new ProductManager();
+    function editProduct(index) {
+        document.getElementById("display").innerHTML = "";
+        let temp = prompt(`Edit product`, `${arr[index].name}`);
+        if (temp !== null && temp.trim() !== "") {
+            let isEdit = window.confirm(`Do you want to edit this product?`);
+            if (isEdit) {
+                arr[index].name = temp;
+                document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
+            }
+        } else {
+            alert("Product name can not be empty");
+        }
+    }
+
+    function deleteProduct(index) {
+        document.getElementById("display").innerHTML = "";
+        for (let i = 0; i < arr.length; i++) {
+            if (index === i) {
+                let isDelete = window.confirm(`Do you want to delete this product?`);
+                if (isDelete) {
+                    arr.splice(index, 1);
+                    document.getElementById("numberProduct").innerHTML = (`${arr.length} products`);
+                }
+            }
+        }
+    }
 
 </script>
 </html>
