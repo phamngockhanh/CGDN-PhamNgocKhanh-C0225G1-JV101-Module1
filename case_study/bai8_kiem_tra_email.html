@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function checkValidEmail(arr) {
+        let arr1 = [];
+        let arr2 = [];
+        let arr3 = [];
+        let countA = 0;
+        let countB = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === '@') {
+                countA++;
+            }
+            if (arr[i] === '.') {
+                countB++;
+            }
+        }
+        if (countA !== 1 || countB !== 1) {
+            return false;
+        }
+        for (let i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] === '.') {
+                arr.splice(i, 1);
+                break;
+            }
+            arr2.push(arr[i]);
+            arr.splice(i, 1);
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            if (arr2.length < 3 || arr2.length > 10 || Number.isInteger(parseInt(arr2[i])) || (arr2[i] >= "A" && arr2[i] <= "Z")) {
+                return false;
+            }
+        }
+
+        for (let i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] === '@') {
+                arr.splice(i, 1);
+                break;
+            }
+            arr3.push(arr[i]);
+            arr.splice(i, 1);
+        }
+        for (let i = 0; i < arr3.length; i++) {
+            if (arr3.length < 3 || arr3.length > 10 || Number.isInteger(parseInt(arr3[i])) || (arr3[i] >= "A" && arr3[i] <= "Z")) {
+                return false;
+            }
+        }
+        for (let i = arr.length - 1; i >= 0; i--) {
+            arr1.push(arr[i]);
+        }
+        if (arr1.length <= 6 || (parseInt(arr1[arr.length - 1]) >= 0 && parseInt(arr1[arr.length - 1]) <= 9)) {
+            return false;
+        }
+        return true;
+    }
+
+    let str = prompt(`Enter an array: `);
+    let arr = str.split("");
+    alert(checkValidEmail(arr));
+</script>
+</html>

@@ -9,10 +9,10 @@
 </body>
 <script>
     class Phone {
-        constructor(isTyping) {
+        constructor(battery) {
             this.status = false;
-            this.battery = 100;
-            this.isTyping = "";
+            this.battery = battery;
+            this.isTypingMemory = "";
             this.sendedMessage = [];
             this.receivedMessage = [];
         }
@@ -38,17 +38,17 @@
             this.status = !this.status;
         }
 
+        isTyping(text){
+            this.isTypingMemory = text;
+        }
 
 
-        sendToAnotherPhone(phone, text) {
+        sendToAnotherPhone(phone,text) {
             this.isTyping(text);
-            this.sendedMessage.push(text);
+            this.sendedMessage.push(this.isTypingMemory);
             phone.receivedMessage.push(text);
         }
 
-        receivedMessageText(text) {
-            this.receivedMessage.push(text);
-        }
 
         seeMessageSend() {
             for (let i = 0; i < this.sendedMessage.length; i++) {
@@ -71,6 +71,7 @@
     Nokia.phoneCheck();
     Nokia.sendToAnotherPhone(Oppo,"Hello");
     Nokia.seeMessageSend();
+    Oppo.seeMessageReceive();
 
 
 </script>

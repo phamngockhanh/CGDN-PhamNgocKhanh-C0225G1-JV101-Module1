@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function missingValue(arrA, arrB) {
+        let arrC = [];
+        for (let i = 0; i < arrB.length; i++) {
+            if (!arrA.includes(arrB[i]) && !arrC.includes(arrB[i])) {
+                arrC.push(arrB[i]);
+            }
+        }
+        return arrC;
+    }
+
+    let arrA = [7, 2, 5, 3, 5, 3];
+    let arrB = [7, 2, 5, 4, 6, 3, 5, 3, 4, 6];
+    alert(missingValue(arrA, arrB));
+</script>
+</html>

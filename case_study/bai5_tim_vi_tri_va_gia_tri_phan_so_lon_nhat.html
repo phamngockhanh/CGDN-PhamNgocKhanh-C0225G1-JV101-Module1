@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arrA = [5, 2, 5,10];
+    let arrB = [6, 3, 4,2];
+
+    function maxFraction(arrA, arrB) {
+        let max = arrA[0] / arrB[0];
+        let index = 0;
+        if (arrA.length !== arrB.length) {
+            return "Two length not equal";
+        }
+        for (let i = 1; i < arrA.length; i++) {
+            if (max < (arrA[i] / arrB[i])) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    alert(maxFraction(arrA, arrB));
+</script>
+</html>

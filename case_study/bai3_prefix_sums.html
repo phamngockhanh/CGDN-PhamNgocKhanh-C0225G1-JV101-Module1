@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function prefixSums(arrA) {
+        let arrB = [];
+        let sum = 0;
+        for (let i = 0; i < arrA.length; i++) {
+            sum += arrA[i];
+            arrB.push(sum);
+        }
+        return arrB;
+    }
+
+    let arrayLength = +prompt("Enter an array length: ");
+    while (arrayLength > 10 || arrayLength < 0 || !Number.isInteger(arrayLength)) {
+        arrayLength = +prompt("Enter an array length: ");
+    }
+    let arrA = new Array(arrayLength);
+    for (let i = 0; i < arrA.length; i++) {
+        arrA[i] = +prompt(`At position ${i} have value: `);
+    }
+    alert(`${prefixSums(arrA)}`);
+
+</script>
+</html>

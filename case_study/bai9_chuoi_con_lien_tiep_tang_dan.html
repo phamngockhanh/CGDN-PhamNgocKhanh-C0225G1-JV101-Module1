@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    function getMaxChildString(array) {
+        let arr1 = [];
+        let arr2 = [];
+        let longestArray = [];
+        for (let i = 0; i < array.length; i++) {
+            for (let i = 0; i < array.length; i++) {
+                if (longestArray !== arr1) {
+                    if (array[i] < array[i + 1]) {
+                        arr1.push(array[i]);
+                        array.splice(i, 1);
+                        i--;
+                    }
+                    if (array.length === 1) {
+                        arr1.push(array[0]);
+                        break;
+                    }
+                    if (array[i] > array[i + 1]) {
+                        arr1.push(array[i]);
+                        array.splice(i, 1);
+                        i--;
+                        break;
+                    }
+                }
+
+            }
+            if (longestArray !== arr2) {
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i] < array[i + 1]) {
+                        arr2.push(array[i]);
+                        array.splice(i, 1);
+                        i--;
+                    }
+                    if (array.length === 1) {
+                        arr1.push(array[0]);
+                        break;
+                    }
+
+                    if (array[i] > array[i + 1]) {
+                        arr2.push(array[i]);
+                        array.splice(i, 1);
+                        i--;
+                        break;
+                    }
+                }
+            }
+            if (arr1.length === arr2.length || arr1.length < arr2.length) {
+                arr1 = [];
+                longestArray = arr2;
+            } else {
+                arr2 = [];
+                longestArray = arr1;
+            }
+        }
+        return longestArray;
+    }
+
+    let str = prompt(`Enter string: `);
+    let array = str.split("");
+    alert(getMaxChildString(array));
+
+</script>
+</html>

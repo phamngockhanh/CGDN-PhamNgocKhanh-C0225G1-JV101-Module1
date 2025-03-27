@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function numberConvertToString(number) {
+        let a = 0;
+        let stringNumber = [];
+        do {
+            a = number % 10;
+            switch (a) {
+                case 0:
+                    stringNumber.unshift("Zero");
+                    break;
+                case 1:
+                    stringNumber.unshift("One");
+                    break;
+                case 2:
+                    stringNumber.unshift("Two");
+                    break;
+                case 3:
+                    stringNumber.unshift("Three");
+                    break;
+                case 4:
+                    stringNumber.unshift("Four");
+                    break;
+                case 5:
+                    stringNumber.unshift("Five");
+                    break;
+                case 6:
+                    stringNumber.unshift("Six");
+                    break;
+                case 7:
+                    stringNumber.unshift("Seven");
+                    break;
+                case 8:
+                    stringNumber.unshift("Eight");
+                    break;
+                case 9:
+                    stringNumber.unshift("Nine");
+                    break;
+                default:
+                    break;
+            }
+            number = parseInt(number / 10);
+            if (number < 1) {
+                return stringNumber;
+            }
+
+        } while (true);
+    }
+
+    let number = +prompt(`Enter a number: `);
+    while (!Number.isInteger(number) || number <= 0 || number > 999) {
+        number = +prompt(`Enter a number: `);
+    }
+    let numberToStringArray = numberConvertToString(number);
+
+    for (let i = 0; i < numberToStringArray.length; i++) {
+        document.write(`${numberToStringArray[i]} `);
+    }
+</script>
+</html>

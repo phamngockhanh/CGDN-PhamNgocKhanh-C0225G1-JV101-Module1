@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function numberConvertToString(number) {
+        let a = 0;
+        let b = number % 10;
+        let stringNumber = [];
+        let count = 0;
+        do {
+            a = number % 10;
+            count++;
+            switch (a) {
+                case 0:
+                    stringNumber.unshift("");
+                    break;
+                case 1:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("One");
+                            break;
+                        case 2:
+                            switch (b) {
+                                case 1:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Eleven");
+                                    break;
+                                case 2:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Twelve");
+                                    break;
+                                case 3:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Thirteen");
+                                    break;
+                                case 4:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Fourteen");
+                                    break;
+                                case 5:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Fifteen");
+                                    break;
+                                case 6:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Sixteen");
+                                    break;
+                                case 7:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Seventeen");
+                                    break;
+                                case 8:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Eighteen");
+                                    break;
+                                case 9:
+                                    stringNumber.splice(stringNumber.length - 1, 1, "Nineteen");
+                                    break;
+                            }
+                            break;
+                        case 3 :
+                            stringNumber.unshift("One hundred");
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Two");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Twenty-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Two hundred");
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Three");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Thirty-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Three hundred");
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Four");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Forty-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Four hundred");
+                            break;
+                    }
+                    break;
+                case 5:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Five");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Fifty-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Five hundred");
+                            break;
+                    }
+                    break;
+                case 6:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Six");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Sixty-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Six hundred");
+                            break;
+                    }
+                    break;
+                case 7:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Seven");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Seventy-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Seven hundred");
+                            break;
+                    }
+                    break;
+                case 8:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Eight");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Eighty-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Eight hundred");
+                            break;
+                    }
+                    break;
+                case 9:
+                    switch (count) {
+                        case 1:
+                            stringNumber.unshift("Nine");
+                            break;
+                        case 2:
+                            stringNumber.unshift("Ninety-");
+                            break;
+                        case 3 :
+                            stringNumber.unshift("Nine hundred");
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            number = parseInt(number / 10);
+
+            if (number < 1) {
+                return stringNumber;
+            }
+        } while (true);
+    }
+
+    let number = +prompt(`Enter a number: `);
+    while (!Number.isInteger(number) || number <= 0 || number > 999) {
+        number = +prompt(`Enter a number: `);
+    }
+    let numberToStringArray = numberConvertToString(number);
+
+    for (let i = 0; i < numberToStringArray.length; i++) {
+        document.write(`${numberToStringArray[i]} `);
+    }
+</script>
+</html>

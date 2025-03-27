@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function tinhTong(arrGiaTien,arrSoLuong,index){
+        let tongTien;
+        let soLuong = +prompt(`Số lượng mà bạn muốn mua: `);
+        arrSoLuong[index] += soLuong;
+        tongTien = soLuong * arrGiaTien[index];
+        return tongTien;
+    }
+    let arrDoUong = ["Cafe","Cam vắt","Nước ép cà rốt","Nước ép cà chua","Nước lọc","Nước dừa"];
+    let arrGiaTien = [10,15,20,20,5,20];
+    let arrSoLuong = [0,0,0,0,0,0,0];
+    let tongTien = 0;
+    let luaChon ;
+    do {
+
+        luaChon = +prompt(
+            "----------------------Menu------------------------\n" +
+            "Hãy nhập số để chọn đồ uống \n"+
+            `1. ${arrDoUong[0]}: ${arrGiaTien[0]}K ${arrSoLuong[0]}\n` +
+            `2. ${arrDoUong[1]}: ${arrGiaTien[1]}K ${arrSoLuong[1]}\n` +
+            `3. ${arrDoUong[2]}: ${arrGiaTien[2]}K ${arrSoLuong[2]}\n` +
+            `4. ${arrDoUong[3]}: ${arrGiaTien[3]}K ${arrSoLuong[3]}\n` +
+            `5. ${arrDoUong[4]}: ${arrGiaTien[4]}K ${arrSoLuong[4]}\n` +
+            `6. ${arrDoUong[5]}: ${arrGiaTien[5]}K ${arrSoLuong[5]}\n` +
+            `7. Kết thúc \n`+
+            `-----------------Tổng tiền------------------\n` +
+            `Tổng tiền: ${tongTien} K`
+        );
+        switch (luaChon) {
+            case 1:
+                tongTien += tinhTong(arrGiaTien,arrSoLuong,0);
+                break;
+            case 2:
+                tongTien += tinhTong(arrGiaTien,arrSoLuong,1);
+                break;
+            case 3:
+                tongTien += tinhTong(arrGiaTien,arrSoLuong,2);
+                break;
+            case 4:
+                tongTien += tinhTong(arrGiaTien,arrSoLuong,3);
+                break;
+            case 5:
+                tongTien += tinhTong(arrGiaTien,arrSoLuong,4);
+                break;
+            case 6:
+                tongTien += tinhTong(arrGiaTien,arrSoLuong,5);
+                break;
+            case 7:
+                break;
+            default:
+                alert("Vui lòng nhập lại");
+                break;
+        }
+        if (luaChon === 7) {
+            let a = window.confirm("Bạn có muốn thoát chương trình không?");
+            if (a === true) {
+                break;
+            }
+        }
+    } while (true);
+</script>
+</body>
+</html>

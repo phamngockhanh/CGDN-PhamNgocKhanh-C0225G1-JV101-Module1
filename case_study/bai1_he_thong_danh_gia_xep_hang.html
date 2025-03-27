@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+  let spentAmount = +prompt(`Enter user's money spent: `);
+  while(spentAmount<0){
+    spentAmount = +prompt(`Enter user's money spent: `);
+  }
+  function getCustomerRank(spentAmount){
+      let rank;
+      let discount;
+      let freeShipping;
+      let gift;
+    if(spentAmount<100){
+        rank ="Bronze";
+        discount="NO";
+        freeShipping ="NO";
+        gift = "NO";
+    }else if(spentAmount>=100&&spentAmount<=499){
+        rank="Silver";
+        discount = "Decrease 5%";
+        freeShipping = "NO";
+        gift = "NO";
+    }else if(spentAmount>=500&&spentAmount<=999){
+        rank = "Gold";
+        discount = "Decrease 10%";
+        freeShipping = "free shipping";
+        gift = "NO";
+
+    }else{
+        rank = "Platinum";
+        discount = "20%";
+        freeShipping = "free shipping";
+        gift="VIP";
+    }
+    return [rank,discount,freeShipping,gift];
+  }
+
+  let [rank,discount,freeShipping,gift] = getCustomerRank(spentAmount);
+  document.write(`Rank: ${rank}<br>Discount: ${discount}<br>Free Shipping: ${freeShipping}<br>Gift: ${gift}`)
+
+</script>
+</html>
