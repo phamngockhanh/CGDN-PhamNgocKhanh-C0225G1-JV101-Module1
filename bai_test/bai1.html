@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function calculate(arr) {
+        let oddIndexSum = 0;
+        let evenIndexSum = 0;
+        let result
+        for (let i = 0; i < arr.length; i++) {
+            if (i % 2 === 1) {
+                oddIndexSum += arr[i];
+            } else {
+                evenIndexSum += arr[i];
+            }
+        }
+        result = evenIndexSum - oddIndexSum;
+        return result;
+    }
+
+    let n = +prompt(`Enter array length: `);
+    while (n > 50 || !Number.isInteger(n) || n <= 0) {
+        n = +prompt(`Enter array length: `);
+    }
+    let arr = new Array(n);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`At position ${i} have value: `);
+    }
+    let arrDisplay = "";
+    for (let i = 0; i < arr.length; i++) {
+        arrDisplay += `${arr[i]} `;
+    }
+    document.write(`Array is: ${arrDisplay}<br>`);
+
+    document.write(`Result is:${calculate(arr)}`);
+
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function findMinMaxValue(arr) {
+        let min = arr[0][0];
+        let max = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (min > arr[i][j]) {
+                    min = arr[i][j];
+                }
+                if (max < arr[i][j]) {
+                    max = arr[i][j];
+                }
+            }
+        }
+        return [min, max];
+    }
+
+    let rows = +prompt(`Enter rows: `);
+    let cols = +prompt(`Enter cols: `);
+    let arr = new Array(rows);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = new Array(cols);
+        for (let j = 0; j < arr[i].length; j++) {
+            arr[i][j] = +prompt(`At position arr[${i}][${j}] have value: `);
+        }
+    }
+    let [min, max] = findMinMaxValue(arr);
+    alert(`Giá trị nhở nhất là: ${min}\nGiá trị lớn nhất là: ${max}`);
+</script>
+</html>

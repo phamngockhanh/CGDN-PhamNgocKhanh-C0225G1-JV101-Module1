@@ -13,6 +13,7 @@
         let longestArray = [];
         for (let i = 0; i < array.length; i++) {
             for (let i = 0; i < array.length; i++) {
+                // Nếu arr1 khác với longest array thì gán giá trị mới
                 if (longestArray !== arr1) {
                     if (array[i] < array[i + 1]) {
                         arr1.push(array[i]);
@@ -30,17 +31,17 @@
                         break;
                     }
                 }
-
             }
             if (longestArray !== arr2) {
                 for (let i = 0; i < array.length; i++) {
+                    // Nếu arr2 khác với longest array thì gán giá trị mới
                     if (array[i] < array[i + 1]) {
                         arr2.push(array[i]);
                         array.splice(i, 1);
                         i--;
                     }
                     if (array.length === 1) {
-                        arr1.push(array[0]);
+                        arr2.push(array[0]);
                         break;
                     }
 
@@ -52,6 +53,7 @@
                     }
                 }
             }
+            // So sánh nếu mảng nào ngắn hơn thì set lại giá trị rỗng.
             if (arr1.length === arr2.length || arr1.length < arr2.length) {
                 arr1 = [];
                 longestArray = arr2;
@@ -65,7 +67,12 @@
 
     let str = prompt(`Enter string: `);
     let array = str.split("");
-    alert(getMaxChildString(array));
+    let result = getMaxChildString(array);
+    let longestArray = "";
+    for(let i=0;i<result.length;i++){
+        longestArray += result[i];
+    }
+    alert(longestArray);
 
 </script>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    function primeNumber(number) {
+        if (number < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findPrimeNumber(arr) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (primeNumber(arr[i][j]) === true) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    let rows = +prompt(`Enter rows: `);
+    let cols = +prompt(`Enter cols: `);
+
+    let arr = new Array(rows);
+
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = new Array(cols);
+        for (let j = 0; j < arr[i].length; j++) {
+            arr[i][j] = +prompt(`Enter value at arr[${i}][${j}]: `);
+        }
+    }
+    alert(findPrimeNumber(arr));
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    function checkFibonacci(number) {
+        let f = 0;
+        let f1 = 0;
+        let f2 = 0;
+        do {
+            f = f1 + f2;
+            f1 = f2;
+            f2 = f;
+            if (f === 0) {
+                f1 = 1;
+            }
+            if (number === f) {
+                return true;
+            }
+            if (f > number) {
+                return false;
+            }
+
+        } while (true)
+    }
+
+    function arrayFibonacciSorted(array) {
+        let arrF = []
+        for (let i = 0; i < array.length; i++) {
+            if (checkFibonacci(array[i]) === true) {
+                arrF.push(array[i]);
+            }
+        }
+        arrF.sort((a, b) => a - b);
+        return arrF;
+    }
+
+    let length = +prompt(`Enter array length: `);
+    while (length < 0 || length > 50 || !Number.isInteger(length)) {
+        length = +prompt(`Enter array length: `);
+    }
+    let arr = new Array(length);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`At position ${i} have value: `);
+    }
+    alert(arrayFibonacciSorted(arr));
+
+</script>
+</html>

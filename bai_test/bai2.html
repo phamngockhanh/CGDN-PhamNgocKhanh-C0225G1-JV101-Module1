@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function checkUpperLowerCase(arr) {
+        let countUpper = 0;
+        let countLower = 0;
+        if(arr===""){
+            return[0,0];
+        }
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] >= 'A' && arr[i] <= 'Z') {
+                countUpper++;
+            }else if(arr[i] !== " "){
+                countLower++;
+            }
+        }
+        return [countUpper, countLower];
+    }
+
+    let str = prompt(`Enter string: `);
+    let arr = str.split("");
+    //let [upper, lower] = checkUpperLowerCase(arr);
+    alert(checkUpperLowerCase(arr));
+    //alert(`Upper case: ${upper}\nLower case: ${lower}`);
+</script>
+</html>

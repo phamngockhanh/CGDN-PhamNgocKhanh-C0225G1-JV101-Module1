@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    function sum(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] % 2 === 0) {
+                    sum += arr[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+
+    let rows = +prompt(`Enter rows: `);
+    let cols = +prompt(`Enter cols: `);
+    let arr = new Array(rows);
+    for (let i = 0; i < rows; i++) {
+        arr[i] = new Array(cols);
+        for (let j = 0; j < cols; j++) {
+            arr[i][j] = +prompt(`Enter for arr[${i}][${j}]: `);
+        }
+    }
+    console.log(sum(arr));
+</script>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #addComputer {
+            background-color: #e4edf1;
+            padding: 15px;
+            margin-top: 5px;
+            width: 25%;
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+        }
+
+        #addComputer input:last-child {
+            background-color: #aeecb1;
+            border-radius: 5px;
+            color: white;
+            border: 1px solid;
+            margin-left: 20px;
+            padding: 5px 10px 5px 10px;
+            font-size: 10px;
+        }
+
+        #numberComputer {
+            color: red;
+            margin-left: 15px;
+        }
+
+        .secondContainer {
+            display: flex;
+        }
+
+        #buttonDisplay {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h4><label>Add New Computer</label></h4>
+    </div>
+    <div id="addComputer">
+        <label><input type="text" id="addNewComputerId" placeholder="Computer id"></label>
+        <label><input type="text" id="addNewComputerName" placeholder="Computer name"></label>
+        <label><input type="text" id="addNewComputerBrand" placeholder="Computer brand"></label>
+        <label><input type="text" id="addNewComputerPrice" placeholder="Computer price"></label>
+        <input type="button" value="Add" onclick="addComputer()">
+    </div>
+    <div>
+        <h4>Display all Computer</h4>
+    </div>
+    <div class="secondContainer">
+        <div>
+            Computer Name
+        </div>
+        <div id="numberComputer">
+        </div>
+        <div id="buttonDisplay">
+            <input type="button" value="Display" onclick="displayComputer()">
+        </div>
+        <div id="sortedButton">
+            <input type="button" value="Sort" onclick="sortedButton()">
+        </div>
+    </div>
+    <div>
+        <p id="display"></p>
+        <p id="displaySorted"></p>
+
+    </div>
+
+</div>
+</body>
+<script>
+    class Computer {
+        constructor(id, name, brand, price) {
+            this.id = id;
+            this.name = name;
+            this.brand = brand;
+            this.price = price;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setBrand(brand) {
+            this.brand = brand;
+        }
+
+        getBrand() {
+            return this.brand;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        toString() {
+            this.getBrand();
+            this.getId();
+            this.getName();
+            this.getPrice();
+        }
+    }
+
+    let Computer1 = new Computer("XS1360", "Asus vip pro", "Asus", 19600000);
+    let Computer2 = new Computer("XS1361", "Cell cui bap", "Cell", 20000000);
+    let Computer3 = new Computer("XS1362", "HP pro 123", "HP", 18000000);
+
+    let arr = [Computer1, Computer2, Computer3];
+
+    document.getElementById("numberComputer").innerHTML = (`${arr.length} Computers`);
+
+    function sortedButton() {
+        let arr2 = arr;
+        for (let i = 0; i < arr2.length - 1; i++) {
+            for (let j = 0; j < arr2.length - 1 - i; j++) {
+                if (arr2[j].price > arr2[j + 1].price) {
+                    let temp = arr2[j];
+                    arr2[j] = arr2[j + 1];
+                    arr2[j + 1] = temp;
+                }
+            }
+        }
+        document.getElementById("display").innerHTML = "";
+
+        for (let i = 0; i < arr2.length; i++) {
+            document.getElementById("display").innerHTML += `
+            <div style="display: flex; justify-content: space-between ; color: #4CAF50; margin-bottom: 10px;">
+                <span>${arr2[i].id}|</span>
+                <span>${arr2[i].name}|</span>
+                <span>${arr2[i].brand}|</span>
+                <span>${arr2[i].price}</span>
+            </div>`;
+        }
+    }
+
+    function displayComputer() {
+        document.getElementById("display").innerHTML = "";
+        for (let i = 0; i < arr.length; i++) {
+            document.getElementById("display").innerHTML += `
+            <div style="display: flex; justify-content: space-between ; color: #4CAF50; margin-bottom: 10px;">
+                <span>${arr[i].id}|</span>
+                <span>${arr[i].name}|</span>
+                <span>${arr[i].brand}|</span>
+                <span>${arr[i].price}</span>
+            </div>`;
+        }
+    }
+
+    function addComputer() {
+        let idNewComputer = document.getElementById("addNewComputerId").value;
+        let nameNewComputer = document.getElementById("addNewComputerName").value;
+        let brandNewComputer = document.getElementById("addNewComputerBrand").value;
+        let priceNewComputer = document.getElementById("addNewComputerPrice").value;
+        let newComputer = new Computer(idNewComputer, nameNewComputer, brandNewComputer, priceNewComputer);
+        if (nameNewComputer === "" || nameNewComputer === "" || brandNewComputer === "" || priceNewComputer===""||isNaN(priceNewComputer)||parseInt(priceNewComputer)<100000) {
+            alert("Please input real Computer!!")
+        } else {
+            let isAdd = window.confirm(`Do you want to add new Computer?`);
+            if (isAdd) {
+                arr.push(newComputer);
+                alert("Add success!!!!");
+                document.getElementById("numberComputer").innerHTML = (`${arr.length} Computers`);
+                document.getElementById("addNewComputerId").value = "";
+                document.getElementById("addNewComputerName").value = "";
+                document.getElementById("addNewComputerBrand").value = "";
+                document.getElementById("addNewComputerPrice").value = "";
+                document.getElementById("display").innerHTML = "";
+            }
+        }
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    function checkStringDuplicated(arr) {
+        let arrA = [];
+        let arrB = [];
+        let arrC = [];
+        for (let i = 0; i < arr.length; i++) {
+            arrA = arr[i].split("");
+            arrC.push(arr[i]);
+            for (let j = i + 1; j < arr.length; j++) {
+                arrB = arr[j].split("");
+                if (arrA.includes(arrB[j])) {
+                    arrC.push(arrA[j]);
+                    arr.splice(j, 1);
+                }
+            }
+        }
+    }
+
+    let arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+    checkStringDuplicated(arr);
+</script>
+</html>
